@@ -1,628 +1,1077 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>極眠テクノロジー | 医療監修の企業特化型ドライヘッドスパ</title>
-<meta name="description" content="元救急救命士監修。企業訪問型メディカルドライヘッドスパで、社員のストレスと離職率を改善。無料デモ実施中。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#030b1a;
-  --navy2:#070f20;
-  --navy3:#0b1628;
-  --blue:#2563eb;
-  --blue2:#3b82f6;
-  --blue3:#60a5fa;
-  --cyan:#22d3ee;
-  --cyan2:#67e8f9;
-  --w:rgba(255,255,255,1);
-  --wm:rgba(255,255,255,.58);
-  --wf:rgba(255,255,255,.28);
-  --card:rgba(255,255,255,.04);
-  --bdr:rgba(255,255,255,.08);
-}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
-  background:var(--navy);
-  color:#fff;
-  overflow-x:hidden;
-  line-height:1.7;
-}
-
-/* ─ NAV ─ */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:999;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 52px;
-  background:rgba(3,11,26,.9);
-  backdrop-filter:blur(24px);
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-.nav-logo{display:flex;flex-direction:column;gap:1px}
-.nav-logo-ja{font-size:16px;font-weight:700;letter-spacing:.06em}
-.nav-logo-en{font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.22em;color:var(--blue3);opacity:.65}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{font-size:13px;font-weight:500;color:var(--wm);text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:#fff}
-.nav-btn{
-  font-family:'Noto Sans JP',sans-serif;
-  font-size:13px;font-weight:700;color:#fff;
-  background:var(--blue);padding:10px 22px;border-radius:7px;text-decoration:none;
-  transition:background .2s,box-shadow .2s;
-}
-.nav-btn:hover{background:var(--blue2);box-shadow:0 4px 18px rgba(37,99,235,.45)}
-
-/* ─ HERO ─ */
-.hero{
-  min-height:100vh;
-  display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:48px;
-  padding:130px 52px 90px;
-  position:relative;overflow:hidden;
-}
-/* animated bg */
-.hero-bg{
-  position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse 85% 65% at 62% 28%,rgba(37,99,235,.22) 0%,transparent 62%),
-    radial-gradient(ellipse 50% 44% at 18% 82%,rgba(6,182,212,.12) 0%,transparent 58%);
-}
-/* flowing light lines */
-.hero-lines{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.hero-lines svg{position:absolute;inset:0;width:100%;height:100%}
-
-.hero-content{position:relative;z-index:2}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:'Inter',sans-serif;font-size:10.5px;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--blue3);
-  background:rgba(37,99,235,.1);border:1px solid rgba(59,130,246,.3);
-  padding:6px 16px;border-radius:999px;margin-bottom:28px;
-}
-.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:blink 2s ease infinite}
-@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
-
-.hero-h1{font-size:clamp(32px,3.5vw,48px);font-weight:900;line-height:1.2;letter-spacing:-.02em;margin-bottom:4px}
-.hero-h1-big{
-  display:block;
-  font-size:clamp(68px,9vw,120px);font-weight:900;line-height:.96;letter-spacing:-.04em;
-  background:linear-gradient(118deg,#fff 10%,#93c5fd 52%,#22d3ee 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  margin-bottom:22px;
-}
-.hero-sub{font-size:16px;font-weight:300;color:var(--wm);line-height:1.95;margin-bottom:44px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px}
-
-.btn-p{
-  font-family:'Noto Sans JP',sans-serif;
-  display:inline-flex;align-items:center;gap:8px;
-  padding:15px 34px;background:var(--blue);color:#fff;
-  font-size:15px;font-weight:700;text-decoration:none;border-radius:9px;border:none;cursor:pointer;
-  transition:all .25s;
-}
-.btn-p:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,99,235,.45)}
-.btn-g{
-  font-family:'Noto Sans JP',sans-serif;
-  display:inline-flex;align-items:center;gap:8px;
-  padding:15px 28px;background:transparent;color:#fff;
-  font-size:15px;font-weight:500;text-decoration:none;border-radius:9px;
-  border:1px solid rgba(255,255,255,.22);cursor:pointer;transition:all .25s;
-}
-.btn-g:hover{border-color:rgba(255,255,255,.42);background:rgba(255,255,255,.06)}
-
-.hero-stats{display:flex;gap:28px}
-.stat{display:flex;flex-direction:column;align-items:center;gap:2px}
-.stat-icon{
-  width:54px;height:54px;border-radius:50%;
-  background:rgba(37,99,235,.12);border:1px solid rgba(59,130,246,.26);
-  display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:6px;
-}
-.stat-val{
-  font-family:'Inter',sans-serif;font-size:26px;font-weight:900;line-height:1;
-  background:linear-gradient(135deg,var(--blue3),var(--cyan));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.stat-lbl{font-size:11px;color:var(--wf);text-align:center;line-height:1.4}
-
-.hero-visual{position:relative;z-index:2;display:flex;justify-content:center}
-.hero-frame{
-  width:100%;max-width:490px;border-radius:22px;overflow:hidden;
-  box-shadow:0 0 80px rgba(37,99,235,.28),0 0 32px rgba(6,182,212,.1);
-  border:1px solid rgba(59,130,246,.14);
-}
-/* ↓ 施術写真をここに差し替え: <img src="photo.jpg" style="width:100%;display:block"> */
-.hero-photo{
-  width:100%;aspect-ratio:3/4;
-  background:
-    radial-gradient(ellipse 62% 52% at 48% 36%,rgba(37,99,235,.32) 0%,transparent 62%),
-    radial-gradient(ellipse 38% 32% at 72% 68%,rgba(6,182,212,.16) 0%,transparent 52%),
-    linear-gradient(155deg,#0a1a36 0%,#020b18 100%);
-  display:flex;align-items:center;justify-content:center;flex-direction:column;
-  gap:12px;color:rgba(255,255,255,.18);font-size:12px;letter-spacing:.06em;
-  position:relative;
-}
-.hero-photo-svg{position:absolute;inset:0;width:100%;height:100%}
-
-/* ─ SECTION ─ */
-.s{padding:96px 52px}
-.s-alt{background:var(--navy2)}
-.inner{max-width:1100px;margin:0 auto}
-
-.tag{
-  display:block;text-align:center;
-  font-family:'Inter',sans-serif;font-size:10px;font-weight:700;
-  letter-spacing:.25em;text-transform:uppercase;color:var(--blue3);margin-bottom:10px;
-}
-.sep{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:10px}
-.sep::before,.sep::after{content:'';flex:0 0 44px;height:1px}
-.sep::before{background:linear-gradient(90deg,transparent,rgba(59,130,246,.6))}
-.sep::after{background:linear-gradient(90deg,rgba(59,130,246,.6),transparent)}
-.ttl{font-size:clamp(26px,3vw,36px);font-weight:700;text-align:center;letter-spacing:-.01em;margin-bottom:12px}
-.dsc{font-size:15px;font-weight:300;color:var(--wm);text-align:center;line-height:1.9;max-width:580px;margin:0 auto 60px}
-
-.card{
-  background:var(--card);border:1px solid var(--bdr);border-radius:18px;padding:34px;
-  transition:border-color .3s,transform .3s,background .3s;
-}
-.card:hover{border-color:rgba(59,130,246,.3);background:rgba(255,255,255,.06);transform:translateY(-5px)}
-
-/* ─ SERVICE ─ */
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.s-icon{
-  width:58px;height:58px;border-radius:14px;
-  background:rgba(37,99,235,.12);border:1px solid rgba(59,130,246,.24);
-  display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:20px;
-}
-.s-title{font-size:18px;font-weight:700;margin-bottom:12px}
-.s-body{font-size:14px;color:var(--wm);line-height:1.85}
-
-/* ─ ROI ─ */
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.roi-card{text-align:center;padding:40px 18px}
-.roi-emoji{font-size:28px;display:block;margin-bottom:14px}
-.roi-lbl{font-size:13px;color:var(--wm);margin-bottom:6px}
-.roi-val{
-  font-family:'Inter',sans-serif;font-size:clamp(38px,4.5vw,58px);font-weight:900;line-height:1;
-  background:linear-gradient(135deg,var(--blue3),var(--cyan));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  margin-bottom:10px;
-}
-.roi-note{font-size:11px;color:var(--wf);line-height:1.5}
-.roi-foot{text-align:center;font-size:15px;color:var(--wm);font-weight:300;margin-top:48px;letter-spacing:.01em}
-
-/* ─ WHY ─ */
-.why-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center}
-.why-list{display:flex;flex-direction:column;gap:22px}
-.why-item{display:flex;align-items:flex-start;gap:16px}
-.why-ck{
-  width:30px;height:30px;flex-shrink:0;border-radius:50%;margin-top:2px;
-  background:rgba(37,99,235,.14);border:1px solid rgba(59,130,246,.34);
-  display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:13px;font-weight:700;
-}
-.why-t{font-size:16px;font-weight:700;margin-bottom:5px}
-.why-d{font-size:13px;color:var(--wm);line-height:1.8}
-.why-panel{
-  background:var(--card);border:1px solid var(--bdr);border-radius:22px;padding:50px 36px;text-align:center;
-  position:relative;overflow:hidden;
-}
-.why-panel::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(37,99,235,.12) 0%,transparent 68%);
-}
-.wp-big{
-  position:relative;font-family:'Inter',sans-serif;font-size:88px;font-weight:900;line-height:1;
-  background:linear-gradient(135deg,var(--blue2),var(--cyan));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.wp-lbl{position:relative;font-size:14px;color:var(--wm);margin-top:8px}
-.wp-sub{position:relative;font-size:12px;color:var(--wf);margin-top:5px}
-.wp-hr{width:40px;height:1px;background:rgba(255,255,255,.08);margin:28px auto;position:relative}
-.wp-big2{
-  position:relative;font-family:'Inter',sans-serif;font-size:60px;font-weight:900;line-height:1;
-  background:linear-gradient(135deg,var(--blue3),var(--cyan2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-
-/* ─ PRICING ─ */
-.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:980px;margin:0 auto}
-.pc{border-radius:20px;padding:40px 30px;display:flex;flex-direction:column;position:relative}
-.pc-feat{
-  background:linear-gradient(145deg,rgba(37,99,235,.2) 0%,rgba(6,182,212,.09) 100%);
-  border:1px solid rgba(59,130,246,.42);
-  box-shadow:0 0 50px rgba(37,99,235,.18);
-}
-.pc-badge{
-  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
-  background:linear-gradient(90deg,var(--blue),var(--cyan));
-  font-size:11px;font-weight:700;letter-spacing:.06em;
-  color:#fff;padding:4px 20px;border-radius:999px;white-space:nowrap;
-}
-.pc-plan{font-size:13px;color:var(--wm);font-weight:500;margin-bottom:10px}
-.pc-price{
-  font-family:'Inter',sans-serif;font-size:44px;font-weight:900;line-height:1;color:#fff;margin-bottom:4px;
-}
-.pc-price sup{font-size:22px;font-weight:600;vertical-align:top;margin-top:10px;display:inline-block}
-.pc-price span{font-size:16px;font-weight:500;color:var(--wm)}
-.pc-freq{font-size:13px;color:var(--wf);margin-bottom:26px}
-.pc-hr{height:1px;background:rgba(255,255,255,.07);margin-bottom:22px}
-.pc-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:30px;flex:1}
-.pc-list li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,.65);line-height:1.6}
-.pc-list li::before{content:'✓';color:var(--cyan);font-weight:700;flex-shrink:0}
-.hl{color:var(--cyan2);font-weight:600}
-.btn-o{
-  font-family:'Noto Sans JP',sans-serif;display:block;width:100%;text-align:center;
-  padding:13px;border:1px solid rgba(255,255,255,.2);border-radius:8px;
-  color:#fff;font-size:14px;font-weight:500;text-decoration:none;transition:all .2s;
-}
-.btn-o:hover{border-color:rgba(255,255,255,.42);background:rgba(255,255,255,.06)}
-.btn-f{
-  font-family:'Noto Sans JP',sans-serif;display:block;width:100%;text-align:center;
-  padding:14px;background:var(--blue);border:none;border-radius:8px;
-  color:#fff;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .2s;
-}
-.btn-f:hover{background:var(--blue2);box-shadow:0 6px 20px rgba(37,99,235,.4)}
-
-/* ─ FLOW ─ */
-.flow-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;max-width:880px;margin:0 auto}
-.flow-line{position:absolute;top:31px;left:calc(100%/6 + 31px);right:calc(100%/6 + 31px);height:1px;background:linear-gradient(90deg,rgba(59,130,246,.6),rgba(6,182,212,.6))}
-.flow-item{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 28px}
-.flow-n{
-  width:62px;height:62px;border-radius:50%;z-index:2;position:relative;
-  background:linear-gradient(135deg,#1d4ed8,#2563eb);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Inter',sans-serif;font-size:19px;font-weight:700;
-  margin-bottom:26px;box-shadow:0 0 28px rgba(37,99,235,.55);
-}
-.flow-t{font-size:16px;font-weight:700;margin-bottom:10px}
-.flow-d{font-size:13px;color:var(--wm);line-height:1.8}
-
-/* ─ CTA ─ */
-.cta-s{
-  padding:110px 52px;text-align:center;position:relative;overflow:hidden;
-  background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(37,99,235,.16) 0%,transparent 68%),var(--navy3);
-}
-.cta-tag{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:18px}
-.cta-ttl{font-size:clamp(28px,4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.22;margin-bottom:14px}
-.cta-dsc{font-size:15px;color:var(--wm);font-weight:300;line-height:1.9;margin-bottom:48px}
-.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.cta-note{font-size:12px;color:var(--wf)}
-
-/* ─ FOOTER ─ */
-footer{
-  padding:36px 52px;border-top:1px solid rgba(255,255,255,.05);
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
-}
-.foot-links{display:flex;gap:24px;list-style:none}
-.foot-links a{font-size:12px;color:var(--wf);text-decoration:none;transition:color .2s}
-.foot-links a:hover{color:var(--wm)}
-.foot-copy{font-size:12px;color:var(--wf)}
-
-/* ─ SCROLL FADE ─ */
-.fi{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
-.fi.on{opacity:1;transform:translateY(0)}
-.fi:nth-child(2){transition-delay:.1s}
-.fi:nth-child(3){transition-delay:.2s}
-.fi:nth-child(4){transition-delay:.3s}
-
-/* ─ RESPONSIVE ─ */
-@media(max-width:1080px){
-  nav{padding:14px 22px}
-  .nav-links{display:none}
-  .hero{grid-template-columns:1fr;padding:110px 22px 80px}
-  .hero-visual{display:none}
-  .s{padding:72px 22px}
-  .g3{grid-template-columns:1fr}
-  .g4{grid-template-columns:repeat(2,1fr)}
-  .why-grid{grid-template-columns:1fr;gap:48px}
-  .price-grid{grid-template-columns:1fr;max-width:400px}
-  .flow-wrap{grid-template-columns:1fr;gap:40px}
-  .flow-line{display:none}
-  footer{flex-direction:column;align-items:flex-start;padding:28px 22px}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRAIN CLEAR | 医療監修の企業特化型 脳洗浄</title>
+  <meta name="description" content="医療監修の企業特化型ドライヘッドスパ。社員のコンディションを整え、組織の生産性とエンゲージメントを高めます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: #f6fbff;
+      font-family: "Noto Sans JP", sans-serif;
+      background:
+        radial-gradient(circle at 78% 7%, rgba(31, 118, 255, .28), transparent 30rem),
+        radial-gradient(circle at 10% 55%, rgba(0, 210, 255, .13), transparent 28rem),
+        linear-gradient(180deg, #020816 0%, #051329 38%, #020817 100%);
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background-image:
+        linear-gradient(rgba(76, 166, 255, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(76, 166, 255, .035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(90deg, rgba(0,0,0,.55), transparent 42%, transparent 100%);
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10;
+      background:
+        radial-gradient(circle at 50% 0, transparent 0, rgba(0,0,0,.32) 83%),
+        linear-gradient(rgba(255,255,255,.025), rgba(255,255,255,0) 22%);
+      mix-blend-mode: screen;
+    }
+    :root {
+      --bg: #020816;
+      --panel: rgba(11, 31, 62, .72);
+      --panel-2: rgba(8, 24, 50, .88);
+      --line: rgba(98, 177, 255, .32);
+      --line-soft: rgba(98, 177, 255, .16);
+      --cyan: #38d7ff;
+      --blue: #2c73ff;
+      --blue-2: #0a4edb;
+      --gold: #f3ca72;
+      --gold-2: #d8a845;
+      --muted: rgba(231, 243, 255, .78);
+      --thin: rgba(231, 243, 255, .54);
+      --serif: "Noto Serif JP", serif;
+      --inter: "Inter", sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .page {
+      position: relative;
+      isolation: isolate;
+    }
+    .shell {
+      width: min(1160px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+    .light-field {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .stream {
+      position: absolute;
+      width: 78vw;
+      height: 260px;
+      border-radius: 50%;
+      border-top: 2px solid rgba(69, 188, 255, .8);
+      border-bottom: 1px solid rgba(43, 100, 255, .4);
+      filter: drop-shadow(0 0 10px rgba(47, 156, 255, .9)) drop-shadow(0 0 30px rgba(19, 91, 255, .55));
+      opacity: .72;
+      transform: rotate(-10deg);
+      animation: streamDrift 7s ease-in-out infinite alternate;
+    }
+    .stream::before,
+    .stream::after {
+      content: "";
+      position: absolute;
+      inset: 26px 18px;
+      border-radius: 50%;
+      border-top: 1px solid rgba(97, 214, 255, .72);
+      transform: rotate(3deg);
+    }
+    .stream::after {
+      inset: 48px 34px;
+      border-top-color: rgba(35, 104, 255, .85);
+      filter: blur(.2px);
+    }
+    .stream.one { right: -18vw; top: 195px; }
+    .stream.two { left: -32vw; top: 810px; width: 94vw; animation-delay: -2.5s; }
+    .stream.three { right: -34vw; bottom: 120px; width: 96vw; animation-delay: -1.2s; }
+    .spark {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #71e8ff;
+      box-shadow: 0 0 16px #37cfff, 0 0 38px #1d67ff;
+      animation: pulse 2.7s ease-in-out infinite;
+    }
+    .spark.s1 { right: 32%; top: 266px; }
+    .spark.s2 { right: 12%; top: 392px; animation-delay: -.8s; }
+    .spark.s3 { left: 8%; top: 930px; animation-delay: -1.4s; }
+    .spark.s4 { right: 6%; bottom: 490px; animation-delay: -.2s; }
+    @keyframes streamDrift {
+      from { transform: translate3d(-12px, 12px, 0) rotate(-10deg) scale(1); }
+      to { transform: translate3d(18px, -10px, 0) rotate(-8deg) scale(1.025); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: .35; transform: scale(.8); }
+      45% { opacity: 1; transform: scale(1.5); }
+    }
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(116, 190, 255, .14);
+      background: linear-gradient(180deg, rgba(2, 8, 22, .9), rgba(2, 8, 22, .58));
+      backdrop-filter: blur(18px);
+    }
+    .nav-inner {
+      width: min(1200px, calc(100% - 44px));
+      margin: 0 auto;
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      white-space: nowrap;
+    }
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      border: 1px solid rgba(220, 241, 255, .85);
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #dff2ff;
+      position: relative;
+    }
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      width: 13px;
+      height: 25px;
+      border: 1px solid currentColor;
+      border-radius: 12px 6px 6px 12px;
+    }
+    .brand-mark::before { left: 8px; }
+    .brand-mark::after { right: 8px; transform: scaleX(-1); }
+    .brand-name {
+      font: 700 25px/1 var(--inter);
+      letter-spacing: .16em;
+    }
+    .brand-sub {
+      display: block;
+      margin-top: 8px;
+      font-size: 12px;
+      letter-spacing: .08em;
+      color: rgba(238, 247, 255, .9);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 2.5vw, 34px);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .nav-links a {
+      color: rgba(244, 250, 255, .9);
+      transition: color .2s ease;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 8px;
+      border: 1px solid rgba(140, 204, 255, .45);
+      font-weight: 800;
+      letter-spacing: .02em;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-blue {
+      background: linear-gradient(135deg, #2d75ff, #0d48d6);
+      border-color: rgba(92, 165, 255, .64);
+      box-shadow: 0 16px 36px rgba(21, 91, 239, .35), inset 0 1px 0 rgba(255,255,255,.22);
+    }
+    .btn-blue:hover { box-shadow: 0 20px 45px rgba(21, 91, 239, .48), inset 0 1px 0 rgba(255,255,255,.22); }
+    .btn-gold {
+      color: #101a2a;
+      background: linear-gradient(180deg, #ffe39c, #dba74b);
+      border-color: rgba(255, 232, 161, .75);
+      box-shadow: 0 18px 38px rgba(198, 145, 48, .26), inset 0 1px 0 rgba(255,255,255,.5);
+    }
+    .btn-ghost {
+      background: rgba(4, 14, 31, .34);
+      color: #f9fdff;
+      border-color: rgba(235, 245, 255, .58);
+    }
+    .hero {
+      position: relative;
+      min-height: 640px;
+      padding: 120px 0 42px;
+      border-bottom: 1px solid rgba(42, 135, 255, .22);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(2, 8, 22, .98) 0%, rgba(2, 8, 22, .84) 36%, rgba(2, 8, 22, .22) 68%, rgba(2, 8, 22, .5) 100%),
+        radial-gradient(circle at 58% 28%, rgba(35, 120, 255, .36), transparent 31rem);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(420px, .92fr) minmax(420px, 1.08fr);
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      padding-top: 18px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 20px;
+      border: 1px solid rgba(211, 232, 255, .62);
+      border-radius: 999px;
+      background: rgba(5, 16, 36, .5);
+      color: rgba(255,255,255,.92);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .hero-kicker {
+      margin: 28px 0 8px;
+      font: 600 clamp(28px, 3.3vw, 43px)/1.35 var(--serif);
+      letter-spacing: .07em;
+      text-shadow: 0 2px 18px rgba(0,0,0,.35);
+    }
+    .hero-title {
+      margin: 0;
+      font: 600 clamp(72px, 8.8vw, 132px)/.98 var(--serif);
+      letter-spacing: .12em;
+      text-shadow: 0 0 30px rgba(116, 188, 255, .2);
+    }
+    .hero-title .blue {
+      color: transparent;
+      background: linear-gradient(180deg, #9ac3ff 0%, #2b7eff 48%, #55e5ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    .hero-lead {
+      margin: 26px 0 28px;
+      font-size: clamp(16px, 1.5vw, 19px);
+      line-height: 1.9;
+      font-weight: 800;
+      color: #fff;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      max-width: 610px;
+    }
+    .trust {
+      min-height: 126px;
+      padding: 0 22px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-right: 1px solid rgba(225, 241, 255, .42);
+    }
+    .trust:last-child { border-right: 0; }
+    .trust-icon {
+      width: 55px;
+      height: 55px;
+      margin: 0 auto 10px;
+      border: 1px solid rgba(82, 170, 255, .75);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #ccecff;
+      box-shadow: inset 0 0 22px rgba(35, 117, 255, .22), 0 0 20px rgba(35, 117, 255, .18);
+    }
+    .trust svg,
+    .mini-icon svg,
+    .roi-icon svg { width: 30px; height: 30px; stroke: currentColor; stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .trust b {
+      display: block;
+      font-size: 14px;
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+    .trust span {
+      display: block;
+      color: rgba(237, 247, 255, .72);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+    .hero-art {
+      min-height: 465px;
+      position: relative;
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0 -56px 0 -20px;
+      border-radius: 0 0 0 180px;
+      background:
+        linear-gradient(90deg, rgba(2,8,22,.15), rgba(2,8,22,0) 30%, rgba(2,8,22,.24)),
+        url("assets/reference-wide.png") right 0 top 0 / 1024px 1536px no-repeat;
+      filter: saturate(1.08) contrast(1.08);
+      mask-image: linear-gradient(90deg, transparent 0, #000 10%, #000 100%);
+    }
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      right: 28px;
+      bottom: 22px;
+      width: 144px;
+      height: 126px;
+      border: 1px solid rgba(114, 187, 255, .72);
+      clip-path: polygon(21% 0, 79% 0, 100% 50%, 79% 100%, 21% 100%, 0 50%);
+      background: rgba(3, 15, 38, .45);
+      box-shadow: inset 0 0 32px rgba(42, 117, 255, .15), 0 0 25px rgba(42, 117, 255, .16);
+    }
+    .hex-label {
+      position: absolute;
+      right: 51px;
+      bottom: 55px;
+      width: 98px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 13px;
+      line-height: 1.65;
+      z-index: 2;
+    }
+    .section {
+      position: relative;
+      padding: 36px 0 26px;
+    }
+    .section.deep { padding-top: 58px; }
+    .section-title {
+      margin: 0 0 8px;
+      text-align: center;
+      font-size: clamp(26px, 2.7vw, 34px);
+      letter-spacing: .12em;
+      line-height: 1.3;
+    }
+    .section-title::before,
+    .section-title::after {
+      content: "";
+      display: inline-block;
+      width: 34px;
+      height: 1px;
+      margin: 0 22px .35em;
+      background: linear-gradient(90deg, transparent, rgba(168, 216, 255, .82));
+    }
+    .section-title::after { background: linear-gradient(90deg, rgba(168, 216, 255, .82), transparent); }
+    .eyebrow {
+      display: block;
+      margin-bottom: 8px;
+      text-align: center;
+      color: rgba(236, 246, 255, .58);
+      font: 800 11px/1 var(--inter);
+      letter-spacing: .42em;
+    }
+    .section-copy {
+      margin: 0 auto 24px;
+      max-width: 820px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 600;
+    }
+    .cards-4,
+    .cards-3,
+    .roi-grid,
+    .price-grid {
+      display: grid;
+      gap: 12px;
+    }
+    .cards-4 { grid-template-columns: repeat(4, 1fr); }
+    .cards-3 { grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .glass {
+      position: relative;
+      border: 1px solid var(--line-soft);
+      background: linear-gradient(145deg, rgba(17, 49, 92, .82), rgba(5, 19, 42, .72));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 22px 70px rgba(0,0,0,.2);
+      overflow: hidden;
+    }
+    .glass::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 24% 0, rgba(77, 181, 255, .18), transparent 13rem);
+      pointer-events: none;
+    }
+    .service-card {
+      min-height: 245px;
+      border-radius: 7px;
+      padding: 22px 16px 12px;
+      display: grid;
+      grid-template-rows: auto auto 1fr 70px;
+      gap: 8px;
+    }
+    .mini-icon {
+      width: 43px;
+      height: 43px;
+      color: #dcf2ff;
+      position: relative;
+      z-index: 1;
+    }
+    .service-card h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.45;
+    }
+    .service-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+      font-weight: 600;
+    }
+    .thumb {
+      position: relative;
+      z-index: 1;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(120deg, rgba(255,255,255,.12), rgba(255,255,255,0)),
+        var(--img) center / cover;
+    }
+    .thumb.office { --img: linear-gradient(135deg, #274767, #07172f 65%); }
+    .thumb.office::before {
+      content: "";
+      position: absolute;
+      inset: 15px 22px 0;
+      background: repeating-linear-gradient(90deg, rgba(255,255,255,.35) 0 2px, transparent 2px 38px);
+      opacity: .45;
+    }
+    .thumb.spa { --img: url("assets/reference-tall.png"); background-position: 57% 8%; background-size: 724px 2172px; }
+    .thumb.report { --img: linear-gradient(135deg, #edf8ff, #90c9ff); }
+    .thumb.report::before {
+      content: "";
+      position: absolute;
+      inset: 10px 18px;
+      background:
+        linear-gradient(90deg, transparent 0 12%, #2f8ce8 12% 22%, transparent 22% 30%, #65b8ff 30% 43%, transparent 43% 52%, #2b7fff 52% 62%, transparent 62%),
+        repeating-linear-gradient(0deg, rgba(9,50,94,.2) 0 1px, transparent 1px 13px);
+      opacity: .75;
+    }
+    .thumb.calendar { --img: linear-gradient(135deg, #eef5f8, #b5c1c7); }
+    .thumb.calendar::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      background-image:
+        linear-gradient(rgba(20,30,45,.28) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20,30,45,.28) 1px, transparent 1px);
+      background-size: 28px 20px;
+    }
+    .roi-grid { grid-template-columns: repeat(4, 1fr); }
+    .roi-card {
+      min-height: 190px;
+      border-radius: 7px;
+      padding: 24px 18px 20px;
+      text-align: center;
+    }
+    .roi-icon {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 8px;
+      color: #4fc9ff;
+    }
+    .roi-card h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+    }
+    .roi-value {
+      margin: 0;
+      font: 500 clamp(42px, 5vw, 58px)/1 var(--inter);
+      letter-spacing: -.04em;
+      color: rgba(242, 248, 255, .94);
+      text-shadow: 0 0 24px rgba(86, 177, 255, .24);
+    }
+    .roi-value small {
+      font-size: .5em;
+      margin-left: 3px;
+    }
+    .roi-card p:last-child {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+    .investment {
+      margin: 24px 0 0;
+      text-align: center;
+      font: 700 20px/1.7 var(--serif);
+      letter-spacing: .1em;
+    }
+    .reason {
+      display: grid;
+      grid-template-columns: .82fr 1fr;
+      gap: 56px;
+      align-items: center;
+      padding: 44px 0 26px;
+    }
+    .reason h2 {
+      margin: 0 0 28px;
+      font-size: clamp(28px, 3vw, 40px);
+      letter-spacing: .06em;
+    }
+    .reason-list {
+      display: grid;
+      gap: 22px;
+    }
+    .reason-item {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .check {
+      width: 32px;
+      height: 32px;
+      border: 2px solid #4fd1ff;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #4fd1ff;
+      font-weight: 900;
+      box-shadow: 0 0 18px rgba(55, 192, 255, .22);
+    }
+    .reason-item b {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 17px;
+    }
+    .reason-item span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+      font-weight: 600;
+    }
+    .reason-photo {
+      min-height: 320px;
+      border-radius: 62px 8px 62px 8px;
+      border: 1px solid rgba(72, 164, 255, .34);
+      background:
+        linear-gradient(90deg, rgba(3,11,26,.35), rgba(3,11,26,0)),
+        url("assets/reference-tall.png") center 51% / 724px 2172px no-repeat;
+      box-shadow: 0 0 70px rgba(25, 104, 255, .18);
+      position: relative;
+      overflow: hidden;
+    }
+    .reason-photo::after {
+      content: "";
+      position: absolute;
+      inset: auto -16% -18% -8%;
+      height: 190px;
+      border-top: 2px solid rgba(73, 205, 255, .86);
+      border-radius: 50%;
+      transform: rotate(-8deg);
+      filter: drop-shadow(0 0 16px rgba(35, 145, 255, .95));
+    }
+    .price-grid {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: stretch;
+      padding-top: 14px;
+    }
+    .price-card {
+      min-height: 314px;
+      border-radius: 8px;
+      padding: 30px 34px 28px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      overflow: visible;
+    }
+    .price-card.featured {
+      border-color: rgba(72, 188, 255, .9);
+      box-shadow: 0 0 0 1px rgba(72, 188, 255, .28), 0 0 52px rgba(20, 96, 255, .22);
+    }
+    .ribbon {
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 28px;
+      padding: 0 18px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 5px 5px 0 0;
+      background: linear-gradient(135deg, #2a7cff, #0d5de2);
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .price-card h3 {
+      margin: 0 0 18px;
+      font-size: 20px;
+      letter-spacing: .04em;
+    }
+    .price {
+      margin: 0 0 18px;
+      font: 700 clamp(34px, 4vw, 44px)/1 var(--inter);
+      letter-spacing: -.04em;
+    }
+    .price small {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: .42em;
+      letter-spacing: 0;
+      color: rgba(244,250,255,.85);
+    }
+    .features {
+      margin: 0 0 24px;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+      display: grid;
+      gap: 12px;
+      color: rgba(236,247,255,.82);
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 600;
+      flex: 1;
+    }
+    .features li::before {
+      content: "✓";
+      margin-right: 9px;
+      color: #5cddff;
+      font-weight: 900;
+    }
+    .price-card .btn { width: 100%; margin-top: auto; }
+    .cta-band {
+      position: relative;
+      margin-top: 36px;
+      padding: 52px 0 28px;
+      border-top: 1px solid rgba(46, 140, 255, .2);
+      overflow: hidden;
+    }
+    .cta-box {
+      min-height: 174px;
+      border: 1px solid rgba(67, 166, 255, .52);
+      border-radius: 7px;
+      background:
+        linear-gradient(90deg, rgba(7, 22, 48, .76), rgba(6, 29, 72, .62)),
+        radial-gradient(circle at 8% 0, rgba(50, 180, 255, .26), transparent 24rem);
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 24px;
+      align-items: center;
+      padding: 22px 48px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    .book {
+      width: 160px;
+      height: 112px;
+      margin: 0 auto;
+      border-radius: 4px 12px 12px 4px;
+      background:
+        linear-gradient(110deg, rgba(255,255,255,.06) 0 22%, transparent 22%),
+        linear-gradient(145deg, #092254, #0c4cca);
+      transform: rotate(-15deg);
+      box-shadow: 0 18px 35px rgba(0,0,0,.38), 0 0 36px rgba(46, 159, 255, .22);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1.45;
+    }
+    .free {
+      position: absolute;
+      left: 210px;
+      top: 48px;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2e7eff, #0647c9);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-weight: 900;
+      line-height: 1.3;
+      box-shadow: 0 0 28px rgba(34, 129, 255, .46);
+    }
+    .cta-copy {
+      text-align: center;
+    }
+    .cta-copy h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 3.4vw, 44px);
+      letter-spacing: .08em;
+    }
+    .cta-copy p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.8;
+    }
+    .cta-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 710px;
+      margin: 0 auto;
+    }
+    .footer {
+      padding: 24px 0 36px;
+      color: rgba(233, 245, 255, .5);
+      text-align: center;
+      font-size: 12px;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+    .reveal.on {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 1120px) {
+      .nav-links { display: none; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-art {
+        min-height: 360px;
+        margin-top: -10px;
+      }
+      .hero-photo {
+        inset: 0;
+        border-radius: 28px;
+        mask-image: linear-gradient(180deg, #000, #000 72%, transparent);
+        background-position: right top;
+      }
+      .hero-copy { padding-top: 0; }
+      .cards-4,
+      .roi-grid { grid-template-columns: repeat(2, 1fr); }
+      .reason { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      .shell,
+      .nav-inner { width: min(100% - 28px, 560px); }
+      .nav-inner { height: 68px; }
+      .brand-mark { width: 34px; height: 34px; border-radius: 11px; }
+      .brand-name { font-size: 18px; }
+      .brand-sub { font-size: 10px; margin-top: 5px; }
+      .nav .btn { display: none; }
+      .hero {
+        padding-top: 92px;
+        min-height: 0;
+      }
+      .hero-kicker { margin-top: 22px; }
+      .hero-title { font-size: clamp(62px, 18vw, 96px); letter-spacing: .05em; }
+      .hero-actions,
+      .cta-actions { grid-template-columns: 1fr; display: grid; }
+      .trust-row,
+      .cards-4,
+      .cards-3,
+      .roi-grid,
+      .price-grid { grid-template-columns: 1fr; }
+      .trust {
+        border-right: 0;
+        border-bottom: 1px solid rgba(225, 241, 255, .22);
+        min-height: 100px;
+      }
+      .trust:last-child { border-bottom: 0; }
+      .hero-art { min-height: 300px; }
+      .section { padding-top: 44px; }
+      .section-title { letter-spacing: .04em; }
+      .section-title::before,
+      .section-title::after { width: 22px; margin-inline: 10px; }
+      .service-card { min-height: 228px; }
+      .reason-photo { min-height: 240px; }
+      .cta-box {
+        grid-template-columns: 1fr;
+        padding: 32px 18px;
+      }
+      .free {
+        left: auto;
+        right: 26px;
+        top: 42px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">
-    <span class="nav-logo-ja">極眠テクノロジー</span>
-    <span class="nav-logo-en">GOKUMIN TECHNOLOGY</span>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#service">サービス概要</a></li>
-    <li><a href="#roi">導入効果</a></li>
-    <li><a href="#pricing">料金プラン</a></li>
-    <li><a href="#flow">導入の流れ</a></li>
-  </ul>
-  <a href="#cta" class="nav-btn">無料相談する</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-lines">
-    <svg viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:.8"/>
-          <stop offset="100%" style="stop-color:#22d3ee;stop-opacity:.2"/>
-        </linearGradient>
-        <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-      </defs>
-      <path d="M-100 600 Q300 480 600 560 Q900 640 1200 500 Q1380 420 1540 460" stroke="url(#lg1)" stroke-width="2" fill="none" filter="url(#glow)" opacity=".6">
-        <animate attributeName="d" dur="8s" repeatCount="indefinite"
-          values="M-100 600 Q300 480 600 560 Q900 640 1200 500 Q1380 420 1540 460;
-                  M-100 620 Q300 500 600 540 Q900 620 1200 520 Q1380 440 1540 440;
-                  M-100 600 Q300 480 600 560 Q900 640 1200 500 Q1380 420 1540 460"/>
-      </path>
-      <path d="M-100 700 Q400 580 700 650 Q1000 720 1300 590 Q1420 540 1540 560" stroke="url(#lg1)" stroke-width="1.5" fill="none" opacity=".35">
-        <animate attributeName="d" dur="10s" repeatCount="indefinite"
-          values="M-100 700 Q400 580 700 650 Q1000 720 1300 590 Q1420 540 1540 560;
-                  M-100 680 Q400 600 700 630 Q1000 700 1300 610 Q1420 560 1540 540;
-                  M-100 700 Q400 580 700 650 Q1000 720 1300 590 Q1420 540 1540 560"/>
-      </path>
-      <path d="M-100 480 Q200 380 500 440 Q800 500 1100 390 Q1300 330 1540 360" stroke="url(#lg1)" stroke-width="1" fill="none" opacity=".22">
-        <animate attributeName="d" dur="12s" repeatCount="indefinite"
-          values="M-100 480 Q200 380 500 440 Q800 500 1100 390 Q1300 330 1540 360;
-                  M-100 500 Q200 360 500 460 Q800 520 1100 370 Q1300 350 1540 340;
-                  M-100 480 Q200 380 500 440 Q800 500 1100 390 Q1300 330 1540 360"/>
-      </path>
-    </svg>
-  </div>
-
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="eyebrow-dot"></span>
-      BtoB法人向け ドライヘッドスパサービス
+  <div class="page">
+    <div class="light-field" aria-hidden="true">
+      <span class="stream one"></span>
+      <span class="stream two"></span>
+      <span class="stream three"></span>
+      <span class="spark s1"></span>
+      <span class="spark s2"></span>
+      <span class="spark s3"></span>
+      <span class="spark s4"></span>
     </div>
-    <h1 class="hero-h1">
-      医療監修の
-      <span class="hero-h1-big">"企業特化型"<br>脳洗浄</span>
-    </h1>
-    <p class="hero-sub">訪問専門メディカルドライヘッドスパで、<br>脳から生産性を最大化する。</p>
-    <div class="hero-btns">
-      <a href="#cta" class="btn-p">無料デモを予約する →</a>
-      <a href="#cta" class="btn-g">資料ダウンロード（無料）</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-icon">🏥</div><span class="stat-val">救命士</span><span class="stat-lbl">監修</span></div>
-      <div class="stat"><div class="stat-icon">😊</div><span class="stat-val">92%</span><span class="stat-lbl">利用者<br>満足度</span></div>
-      <div class="stat"><div class="stat-icon">🔄</div><span class="stat-val">100%</span><span class="stat-lbl">継続<br>利用率</span></div>
-    </div>
-  </div>
 
-  <div class="hero-visual">
-    <div class="hero-frame">
-      <!-- 施術写真差し替え → <img src="photo.jpg" style="width:100%;display:block"> に置換 -->
-      <div class="hero-photo">
-        <svg class="hero-photo-svg" viewBox="0 0 490 650" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="pg" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:.9"/>
-              <stop offset="100%" style="stop-color:#22d3ee;stop-opacity:.3"/>
-            </linearGradient>
-            <filter id="pglow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          </defs>
-          <ellipse cx="245" cy="290" rx="205" ry="225" fill="rgba(37,99,235,.07)"/>
-          <ellipse cx="245" cy="290" rx="130" ry="148" fill="rgba(6,182,212,.05)"/>
-          <path d="M30 440 Q160 340 280 420 Q400 500 480 385" stroke="url(#pg)" stroke-width="2.5" fill="none" filter="url(#pglow)" opacity=".72">
-            <animate attributeName="d" dur="5s" repeatCount="indefinite"
-              values="M30 440 Q160 340 280 420 Q400 500 480 385;M30 460 Q160 360 280 400 Q400 480 480 405;M30 440 Q160 340 280 420 Q400 500 480 385"/>
-          </path>
-          <path d="M10 530 Q140 445 260 515 Q380 585 480 475" stroke="url(#pg)" stroke-width="1.5" fill="none" opacity=".38">
-            <animate attributeName="d" dur="6.5s" repeatCount="indefinite"
-              values="M10 530 Q140 445 260 515 Q380 585 480 475;M10 510 Q140 465 260 495 Q380 565 480 495;M10 530 Q140 445 260 515 Q380 585 480 475"/>
-          </path>
-        </svg>
-        <div style="position:relative;z-index:2;text-align:center;color:rgba(255,255,255,.18);font-size:12px;letter-spacing:.06em">
-          <div style="font-size:68px;margin-bottom:12px;opacity:.3">🧠</div>
-          <p>施術写真をここに配置</p>
+    <header class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="#">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>
+            <span class="brand-name">BRAIN CLEAR</span>
+            <span class="brand-sub">ドライヘッドスパ for Business</span>
+          </span>
+        </a>
+        <ul class="nav-links" aria-label="主要ナビゲーション">
+          <li><a href="#service">サービス概要</a></li>
+          <li><a href="#roi">導入効果</a></li>
+          <li><a href="#plan">料金プラン</a></li>
+          <li><a href="#flow">導入の流れ</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+        </ul>
+        <a class="btn btn-blue" href="#contact">資料請求・お問い合わせ</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <span class="pill">BtoB法人向け ドライヘッドスパサービス</span>
+            <p class="hero-kicker">医療監修の企業特化型</p>
+            <h1 class="hero-title"><span class="blue">脳</span>洗浄</h1>
+            <p class="hero-lead">ドライヘッドスパで、脳から生産性を最大化する。</p>
+            <div class="hero-actions">
+              <a class="btn btn-gold" href="#contact">資料ダウンロード（無料） <span aria-hidden="true">→</span></a>
+              <a class="btn btn-ghost" href="#contact">導入相談を予約する</a>
+            </div>
+            <div class="trust-row" aria-label="サービスの特徴">
+              <div class="trust">
+                <div>
+                  <span class="trust-icon"><svg viewBox="0 0 32 32"><path d="M16 4l10 4v7c0 6-4 10-10 13C10 25 6 21 6 15V8l10-4z"/><path d="M16 10v10M11 15h10"/></svg></span>
+                  <b>医療監修の安心設計</b>
+                  <span>医師監修のメソッドで<br>安全性と効果を両立</span>
+                </div>
+              </div>
+              <div class="trust">
+                <div>
+                  <span class="trust-icon"><svg viewBox="0 0 32 32"><path d="M6 27V9h12v18M18 14h8v13M10 13h4M10 18h4M10 23h4M22 18h1M22 23h1"/></svg></span>
+                  <b>企業に最適化した<br>プログラム</b>
+                  <span>働く環境や課題に合わせた<br>オーダーメイド施術</span>
+                </div>
+              </div>
+              <div class="trust">
+                <div>
+                  <span class="trust-icon"><svg viewBox="0 0 32 32"><path d="M5 25h22M8 21v-5M16 21V9M24 21v-9"/><path d="M7 11l6-5 6 4 6-7"/></svg></span>
+                  <b>科学的アプローチ</b>
+                  <span>自律神経・ストレス・睡眠の<br>改善をデータで可視化</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="hero-photo"></div>
+            <div class="hex-label">医療法人監修<br>×<br>専門技術</div>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <section class="section" id="service">
+        <div class="shell">
+          <h2 class="section-title">サービス概要</h2>
+          <p class="section-copy">ドライヘッドスパを企業向けに最適化。社員のコンディションを整え、組織のパフォーマンス向上を支援します。</p>
+          <div class="cards-4">
+            <article class="glass service-card reveal">
+              <span class="mini-icon"><svg viewBox="0 0 32 32"><path d="M11 15h10M11 20h10M9 27h14a3 3 0 003-3V10a3 3 0 00-3-3H9a3 3 0 00-3 3v14a3 3 0 003 3z"/><path d="M12 7V4h8v3"/></svg></span>
+              <h3>オフィスで施術可能</h3>
+              <p>専用設備は不要。会議室や休憩スペースで手軽に導入可能。</p>
+              <div class="thumb office"></div>
+            </article>
+            <article class="glass service-card reveal">
+              <span class="mini-icon"><svg viewBox="0 0 32 32"><path d="M11 24c-2-2-4-5-4-9a9 9 0 0118 0c0 4-2 7-4 9"/><path d="M13 14c2-2 4-2 6 0M11 19h10"/></svg></span>
+              <h3>専門セラピストが実施</h3>
+              <p>研修を受けたプロのセラピストが、質の高い施術を提供。</p>
+              <div class="thumb spa"></div>
+            </article>
+            <article class="glass service-card reveal">
+              <span class="mini-icon"><svg viewBox="0 0 32 32"><path d="M9 5h14v22H9z"/><path d="M12 10h8M12 15h8M12 20h5"/></svg></span>
+              <h3>効果測定・レポート</h3>
+              <p>施術前後の心身データを可視化し、効果をレポートでご提供。</p>
+              <div class="thumb report"></div>
+            </article>
+            <article class="glass service-card reveal">
+              <span class="mini-icon"><svg viewBox="0 0 32 32"><path d="M7 8h18v18H7zM11 5v6M21 5v6M7 14h18"/></svg></span>
+              <h3>柔軟な運用設計</h3>
+              <p>単発イベントから定期導入まで、貴社のニーズに合わせて設計。</p>
+              <div class="thumb calendar"></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section deep" id="roi">
+        <div class="shell">
+          <h2 class="section-title">導入効果（ROI）</h2>
+          <p class="section-copy">社員のコンディション向上が、組織の成果につながります。</p>
+          <div class="roi-grid">
+            <article class="glass roi-card reveal">
+              <span class="roi-icon"><svg viewBox="0 0 32 32"><path d="M16 4a10 10 0 00-8 16v5h5"/><path d="M19 8l-5 8h5l-4 8"/></svg></span>
+              <h3>ストレス軽減</h3>
+              <p class="roi-value">-32<small>%</small></p>
+              <p>ストレス指標の改善</p>
+            </article>
+            <article class="glass roi-card reveal">
+              <span class="roi-icon"><svg viewBox="0 0 32 32"><path d="M6 20h20v7H6zM9 20V9a5 5 0 0110 0v11"/></svg></span>
+              <h3>睡眠の質向上</h3>
+              <p class="roi-value">+27<small>%</small></p>
+              <p>睡眠スコア改善</p>
+            </article>
+            <article class="glass roi-card reveal">
+              <span class="roi-icon"><svg viewBox="0 0 32 32"><path d="M6 25V13M15 25V7M24 25V16M4 25h24"/></svg></span>
+              <h3>生産性向上</h3>
+              <p class="roi-value">+23<small>%</small></p>
+              <p>業務パフォーマンス向上</p>
+            </article>
+            <article class="glass roi-card reveal">
+              <span class="roi-icon"><svg viewBox="0 0 32 32"><path d="M16 27s-9-5-9-13a5 5 0 019-3 5 5 0 019 3c0 8-9 13-9 13z"/></svg></span>
+              <h3>離職率の低下</h3>
+              <p class="roi-value">-18<small>%</small></p>
+              <p>離職率の改善</p>
+            </article>
+          </div>
+          <p class="investment">健康投資は、企業の未来への最も確実な投資です。</p>
+        </div>
+      </section>
+
+      <section class="section" id="flow">
+        <div class="shell reason">
+          <div>
+            <h2>選ばれる理由</h2>
+            <div class="reason-list">
+              <div class="reason-item reveal"><span class="check">✓</span><div><b>医師・脳科学者による監修</b><span>医学的根拠に基づいた独自メソッド。</span></div></div>
+              <div class="reason-item reveal"><span class="check">✓</span><div><b>企業特化のカスタマイズ設計</b><span>業種・規模に合わせた最適プランをご提案。</span></div></div>
+              <div class="reason-item reveal"><span class="check">✓</span><div><b>短時間・非接触のドライ施術</b><span>オフィスやイベントスペースで導入可能。</span></div></div>
+              <div class="reason-item reveal"><span class="check">✓</span><div><b>効果を数値で可視化</b><span>科学的データで投資対効果を明確化。</span></div></div>
+            </div>
+          </div>
+          <div class="reason-photo reveal" aria-label="企業向け施術イメージ"></div>
+        </div>
+      </section>
+
+      <section class="section deep" id="plan">
+        <div class="shell">
+          <span class="eyebrow">PLAN</span>
+          <h2 class="section-title">料金プラン <small style="font-size:.55em;color:var(--thin);letter-spacing:.02em">（税別）</small></h2>
+          <div class="price-grid">
+            <article class="glass price-card reveal">
+              <h3>トライアルプラン</h3>
+              <p class="price"><small>月額</small> 100,000<small>円〜</small></p>
+              <ul class="features">
+                <li>初回お試し導入に最適</li>
+                <li>従業員30名まで</li>
+                <li>効果測定レポート付き</li>
+              </ul>
+              <a class="btn btn-ghost" href="#contact">詳細を見る</a>
+            </article>
+            <article class="glass price-card featured reveal">
+              <span class="ribbon">人気No.1</span>
+              <h3>スタンダードプラン</h3>
+              <p class="price"><small>月額</small> 300,000<small>円〜</small></p>
+              <ul class="features">
+                <li>定期訪問（週1回）</li>
+                <li>従業員100名まで</li>
+                <li>効果測定レポート付き</li>
+              </ul>
+              <a class="btn btn-gold" href="#contact">資料請求する</a>
+            </article>
+            <article class="glass price-card reveal">
+              <h3>エンタープライズプラン</h3>
+              <p class="price">要お問い合わせ</p>
+              <ul class="features">
+                <li>大規模企業向け</li>
+                <li>カスタム設計・複数拠点対応</li>
+                <li>専任担当者サポート</li>
+              </ul>
+              <a class="btn btn-ghost" href="#contact">相談を予約する</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band" id="contact">
+        <div class="shell cta-box">
+          <div>
+            <div class="book">サービス資料<br>ダウンロード</div>
+            <div class="free">無料<br><small>ダウンロード</small></div>
+          </div>
+          <div class="cta-copy">
+            <h2>まずは資料請求・ご相談から</h2>
+            <p>サービスの詳細や導入事例、費用感などをまとめた資料をお送りします。</p>
+            <div class="cta-actions">
+              <a class="btn btn-blue" href="#">資料をダウンロードする（無料）</a>
+              <a class="btn btn-ghost" href="#">お問い合わせ・相談する</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="faq">
+      © BRAIN CLEAR / GOKUMIN TECHNOLOGY
+    </footer>
   </div>
-</section>
 
-<!-- SERVICE -->
-<section class="s s-alt" id="service">
-  <div class="inner">
-    <div class="sep"></div>
-    <span class="tag">SERVICE</span>
-    <h2 class="ttl">サービス概要</h2>
-    <p class="dsc">ドライヘッドスパを企業向けに最適化。社員のコンディションを整え、組織のパフォーマンス向上を支援します。</p>
-    <div class="g3">
-      <div class="card fi">
-        <div class="s-icon">🏢</div>
-        <h3 class="s-title">オフィスで施術可能</h3>
-        <p class="s-body">専用設備は一切不要。会議室・休憩室に折りたたみ式リクライニングチェアを設置するだけで即日導入。1セッション15分、入れ替えを含めても20分で完了します。</p>
-      </div>
-      <div class="card fi">
-        <div class="s-icon">🩺</div>
-        <h3 class="s-title">救命士監修のメソッド</h3>
-        <p class="s-body">日本初・元救急救命士監修。医学的根拠に基づくドライヘッドスパで、自律神経・ストレス・睡眠の質を改善。「脳洗浄」とも呼ばれる深部リラクゼーション施術です。</p>
-      </div>
-      <div class="card fi">
-        <div class="s-icon">📊</div>
-        <h3 class="s-title">効果を数値で可視化</h3>
-        <p class="s-body">施術前後のコンディション測定で効果をレポート提供。健康経営優良法人の認定支援にも対応。経営層に伝わるROIデータを提供します。</p>
-      </div>
-    </div>
-  </div>
-</section>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("on");
+      });
+    }, { threshold: 0.12 });
 
-<!-- ROI -->
-<section class="s" id="roi">
-  <div class="inner">
-    <div class="sep"></div>
-    <span class="tag">RESULTS</span>
-    <h2 class="ttl">導入効果（ROI）</h2>
-    <p class="dsc">社員のコンディション向上が、組織の成果につながります。</p>
-    <div class="g4">
-      <div class="card roi-card fi"><span class="roi-emoji">🎯</span><p class="roi-lbl">業務集中力向上</p><div class="roi-val" data-target="23" data-prefix="+" data-suffix="%">+23%</div><p class="roi-note">※当社調べ（導入企業平均）</p></div>
-      <div class="card roi-card fi"><span class="roi-emoji">😊</span><p class="roi-lbl">従業員満足度</p><div class="roi-val" data-target="18" data-prefix="+" data-suffix="pt">+18pt</div><p class="roi-note">※当社調べ（導入企業平均）</p></div>
-      <div class="card roi-card fi"><span class="roi-emoji">📉</span><p class="roi-lbl">離職率改善</p><div class="roi-val" data-target="12" data-prefix="-" data-suffix="%">-12%</div><p class="roi-note">※当社調べ（導入企業平均）</p></div>
-      <div class="card roi-card fi"><span class="roi-emoji">🏢</span><p class="roi-lbl">継続導入率</p><div class="roi-val" data-target="96" data-prefix="" data-suffix="%">96%</div><p class="roi-note">※当社調べ（導入企業平均）</p></div>
-    </div>
-    <p class="roi-foot">健康投資は、企業の未来への最も確実な投資です。</p>
-  </div>
-</section>
-
-<!-- WHY -->
-<section class="s s-alt">
-  <div class="inner">
-    <div class="sep"></div>
-    <span class="tag">REASON</span>
-    <h2 class="ttl" style="margin-bottom:56px">選ばれる理由</h2>
-    <div class="why-grid">
-      <div class="why-list">
-        <div class="why-item fi"><div class="why-ck">✓</div><div><p class="why-t">元救急救命士による医療監修</p><p class="why-d">医学的根拠に基づいた独自メソッドで、安全性と効果を両立。医療のプロが監修した施術を体験できます。</p></div></div>
-        <div class="why-item fi"><div class="why-ck">✓</div><div><p class="why-t">設備不要・会議室で即日導入可能</p><p class="why-d">折りたたみ式リクライニングチェアを持参。工事・設備投資ゼロで、最短当日から導入できます。</p></div></div>
-        <div class="why-item fi"><div class="why-ck">✓</div><div><p class="why-t">1セッション15分・業務への影響ゼロ</p><p class="why-d">休憩時間を活用でき、業務フローを妨げません。入れ替えを含めても20分で完了。</p></div></div>
-        <div class="why-item fi"><div class="why-ck">✓</div><div><p class="why-t">千葉・神奈川・埼玉エリア対応</p><p class="why-d">首都圏主要エリアに訪問対応中。全国展開に向けた協会設立も準備中です。</p></div></div>
-        <div class="why-item fi"><div class="why-ck">✓</div><div><p class="why-t">無料デモンストレーション実施中</p><p class="why-d">まずは実際に体験してから導入を判断できます。費用・義務は一切ありません。</p></div></div>
-      </div>
-      <div class="why-panel fi">
-        <div class="wp-big">100%</div>
-        <p class="wp-lbl">継続利用率</p>
-        <p class="wp-sub">導入したすべての企業が継続中</p>
-        <div class="wp-hr"></div>
-        <div class="wp-big2">92%</div>
-        <p class="wp-lbl">利用者満足度</p>
-        <p class="wp-sub">「また受けたい」と回答した従業員の割合</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="s" id="pricing">
-  <div class="inner">
-    <div class="sep"></div>
-    <span class="tag">PLAN</span>
-    <h2 class="ttl">料金プラン<small style="font-size:15px;font-weight:400;color:var(--wf);margin-left:8px">（税別）</small></h2>
-    <p class="dsc">企業規模・利用頻度に合わせて選べる3プラン。まずは無料デモをお試しください。</p>
-    <div class="price-grid">
-      <div class="card pc fi">
-        <p class="pc-plan">ミニマムプラン</p>
-        <div class="pc-price"><sup>¥</sup>30,000<span>/月</span></div>
-        <p class="pc-freq">月1回訪問</p>
-        <div class="pc-hr"></div>
-        <ul class="pc-list">
-          <li>1回の訪問（最大10名まで）</li>
-          <li>初期導入費 ¥20,000</li>
-          <li>効果レポート付き</li>
-          <li>初回限定プラン</li>
-        </ul>
-        <a href="#cta" class="btn-o">詳細を相談する</a>
-      </div>
-      <div class="card pc pc-feat fi">
-        <div class="pc-badge">おすすめ</div>
-        <p class="pc-plan">スタンダードプラン</p>
-        <div class="pc-price"><sup>¥</sup>90,000<span>/月</span></div>
-        <p class="pc-freq">月3回訪問</p>
-        <div class="pc-hr"></div>
-        <ul class="pc-list">
-          <li>月3回訪問（最大30名まで）</li>
-          <li>初期導入費 ¥20,000</li>
-          <li>効果測定レポート（毎回）</li>
-          <li>専用サポート窓口</li>
-        </ul>
-        <a href="#cta" class="btn-f">資料請求する</a>
-      </div>
-      <div class="card pc fi">
-        <p class="pc-plan">年間プラン</p>
-        <div class="pc-price"><sup>¥</sup>300,000<span>/年</span></div>
-        <p class="pc-freq">月換算 ¥25,000 でお得</p>
-        <div class="pc-hr"></div>
-        <ul class="pc-list">
-          <li>初期導入費 <span class="hl">無料</span></li>
-          <li>年間サポート付き</li>
-          <li>優先予約対応</li>
-          <li>健康経営優良法人 認定支援</li>
-        </ul>
-        <a href="#cta" class="btn-o">相談する</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FLOW -->
-<section class="s s-alt" id="flow">
-  <div class="inner">
-    <div class="sep"></div>
-    <span class="tag">FLOW</span>
-    <h2 class="ttl">導入までの流れ</h2>
-    <p class="dsc">お問い合わせから最短1週間で導入できます。</p>
-    <div class="flow-wrap">
-      <div class="flow-line"></div>
-      <div class="flow-item fi"><div class="flow-n">01</div><h3 class="flow-t">お問い合わせ・ヒアリング</h3><p class="flow-d">フォームまたはお電話でご連絡ください。貴社のニーズ・従業員規模・課題などをヒアリングします。</p></div>
-      <div class="flow-item fi"><div class="flow-n">02</div><h3 class="flow-t">無料トライアル実施</h3><p class="flow-d">まずは無料デモンストレーションを実施。実際の施術を体験していただき、効果をご確認ください。</p></div>
-      <div class="flow-item fi"><div class="flow-n">03</div><h3 class="flow-t">プラン確定・ご契約</h3><p class="flow-d">体験後に最適なプランをご提案。ご納得いただけたら契約締結、定期スケジュールを設定します。</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-s" id="cta">
-  <span class="cta-tag">CONTACT</span>
-  <h2 class="cta-ttl">まずは無料デモンストレーションから</h2>
-  <p class="cta-dsc">サービスの詳細や導入事例、費用感などをまとめた資料をお送りします。<br>無理な営業は一切いたしません。</p>
-  <div class="cta-btns">
-    <a href="#" class="btn-p">無料相談を予約する →</a>
-    <a href="#" class="btn-g">資料をダウンロードする</a>
-  </div>
-  <p class="cta-note">最短1分で完了 ｜ 無理な営業は一切いたしません</p>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="nav-logo">
-    <span class="nav-logo-ja">極眠テクノロジー</span>
-    <span class="nav-logo-en">GOKUMIN TECHNOLOGY</span>
-  </div>
-  <ul class="foot-links">
-    <li><a href="#">プライバシーポリシー</a></li>
-    <li><a href="#">特定商取引法に基づく表記</a></li>
-    <li><a href="#cta">お問い合わせ</a></li>
-  </ul>
-  <p class="foot-copy">© 2025 極眠テクノロジー All Rights Reserved.</p>
-</footer>
-
-<script>
-// Scroll fade-in
-const io = new IntersectionObserver(
-  es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('on') }),
-  { threshold: 0.1 }
-);
-document.querySelectorAll('.fi').forEach(el => io.observe(el));
-
-// ROI count-up
-const countUp = (el) => {
-  const target = +el.dataset.target;
-  const prefix = el.dataset.prefix || '';
-  const suffix = el.dataset.suffix || '';
-  let current = 0;
-  const step = target / 60;
-  const timer = setInterval(() => {
-    current = Math.min(current + step, target);
-    el.textContent = prefix + Math.round(current) + suffix;
-    if (current >= target) clearInterval(timer);
-  }, 16);
-};
-const roiObserver = new IntersectionObserver(es => {
-  es.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.roi-val[data-target]').forEach(countUp);
-      roiObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.3 });
-document.querySelectorAll('#roi').forEach(el => roiObserver.observe(el));
-</script>
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
