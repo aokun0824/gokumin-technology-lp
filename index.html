@@ -1,395 +1,337 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>極眠テクノロジー | 医療監修の企業特化型ドライヘッドスパ</title>
-  <meta name="description" content="元救急救命士監修。企業訪問型メディカルドライヘッドスパで、社員のストレスと離職率を改善。無料デモ実施中。">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>極眠テクノロジー | 医療監修の企業特化型ドライヘッドスパ</title>
+<meta name="description" content="元救急救命士監修。企業訪問型メディカルドライヘッドスパで、社員のストレスと離職率を改善。無料デモ実施中。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#030b1a;
+  --navy2:#070f20;
+  --navy3:#0b1628;
+  --blue:#2563eb;
+  --blue2:#3b82f6;
+  --blue3:#60a5fa;
+  --cyan:#22d3ee;
+  --cyan2:#67e8f9;
+  --w:rgba(255,255,255,1);
+  --wm:rgba(255,255,255,.58);
+  --wf:rgba(255,255,255,.28);
+  --card:rgba(255,255,255,.04);
+  --bdr:rgba(255,255,255,.08);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  background:var(--navy);
+  color:#fff;
+  overflow-x:hidden;
+  line-height:1.7;
+}
 
-    :root {
-      --navy: #030b1a;
-      --navy-2: #060f22;
-      --navy-3: #0a1730;
-      --blue: #2563eb;
-      --blue-l: #3b82f6;
-      --blue-ll: #60a5fa;
-      --cyan: #22d3ee;
-      --cyan-l: #67e8f9;
-      --white: #fff;
-      --muted: rgba(255,255,255,0.55);
-      --faint: rgba(255,255,255,0.28);
-      --card: rgba(255,255,255,0.035);
-      --border: rgba(255,255,255,0.08);
-    }
+/* ─ NAV ─ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 52px;
+  background:rgba(3,11,26,.9);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-logo{display:flex;flex-direction:column;gap:1px}
+.nav-logo-ja{font-size:16px;font-weight:700;letter-spacing:.06em}
+.nav-logo-en{font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.22em;color:var(--blue3);opacity:.65}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--wm);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-btn{
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:13px;font-weight:700;color:#fff;
+  background:var(--blue);padding:10px 22px;border-radius:7px;text-decoration:none;
+  transition:background .2s,box-shadow .2s;
+}
+.nav-btn:hover{background:var(--blue2);box-shadow:0 4px 18px rgba(37,99,235,.45)}
 
-    html { scroll-behavior: smooth; }
+/* ─ HERO ─ */
+.hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:48px;
+  padding:130px 52px 90px;
+  position:relative;overflow:hidden;
+}
+/* animated bg */
+.hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 85% 65% at 62% 28%,rgba(37,99,235,.22) 0%,transparent 62%),
+    radial-gradient(ellipse 50% 44% at 18% 82%,rgba(6,182,212,.12) 0%,transparent 58%);
+}
+/* flowing light lines */
+.hero-lines{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-lines svg{position:absolute;inset:0;width:100%;height:100%}
 
-    body {
-      font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-      background: var(--navy);
-      color: var(--white);
-      overflow-x: hidden;
-    }
+.hero-content{position:relative;z-index:2}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Inter',sans-serif;font-size:10.5px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--blue3);
+  background:rgba(37,99,235,.1);border:1px solid rgba(59,130,246,.3);
+  padding:6px 16px;border-radius:999px;margin-bottom:28px;
+}
+.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 52px;
-      background: rgba(3,11,26,0.88);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .logo { display: flex; flex-direction: column; gap: 1px; }
-    .logo-ja { font-size: 16px; font-weight: 700; letter-spacing: .06em; }
-    .logo-en { font-family: 'Inter',sans-serif; font-size: 9px; letter-spacing: .22em; color: var(--blue-ll); opacity: .65; }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s; }
-    .nav-links a:hover { color: #fff; }
-    .nav-cta {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 13px; font-weight: 600;
-      color: #fff; background: var(--blue);
-      padding: 10px 22px; border-radius: 7px; text-decoration: none;
-      transition: background .2s, box-shadow .2s;
-    }
-    .nav-cta:hover { background: var(--blue-l); box-shadow: 0 4px 18px rgba(37,99,235,.45); }
+.hero-h1{font-size:clamp(32px,3.5vw,48px);font-weight:900;line-height:1.2;letter-spacing:-.02em;margin-bottom:4px}
+.hero-h1-big{
+  display:block;
+  font-size:clamp(68px,9vw,120px);font-weight:900;line-height:.96;letter-spacing:-.04em;
+  background:linear-gradient(118deg,#fff 10%,#93c5fd 52%,#22d3ee 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:22px;
+}
+.hero-sub{font-size:16px;font-weight:300;color:var(--wm);line-height:1.95;margin-bottom:44px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px}
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      align-items: center;
-      gap: 48px;
-      padding: 130px 52px 90px;
-      position: relative;
-      overflow: hidden;
-    }
-    /* BG glow layers */
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 90% 70% at 65% 25%, rgba(37,99,235,.22) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 45% at 15% 85%, rgba(6,182,212,.12) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 30% at 85% 80%, rgba(37,99,235,.08) 0%, transparent 55%);
-      pointer-events: none;
-    }
+.btn-p{
+  font-family:'Noto Sans JP',sans-serif;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:15px 34px;background:var(--blue);color:#fff;
+  font-size:15px;font-weight:700;text-decoration:none;border-radius:9px;border:none;cursor:pointer;
+  transition:all .25s;
+}
+.btn-p:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,99,235,.45)}
+.btn-g{
+  font-family:'Noto Sans JP',sans-serif;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:15px 28px;background:transparent;color:#fff;
+  font-size:15px;font-weight:500;text-decoration:none;border-radius:9px;
+  border:1px solid rgba(255,255,255,.22);cursor:pointer;transition:all .25s;
+}
+.btn-g:hover{border-color:rgba(255,255,255,.42);background:rgba(255,255,255,.06)}
 
-    .hero-content { position: relative; z-index: 2; }
+.hero-stats{display:flex;gap:28px}
+.stat{display:flex;flex-direction:column;align-items:center;gap:2px}
+.stat-icon{
+  width:54px;height:54px;border-radius:50%;
+  background:rgba(37,99,235,.12);border:1px solid rgba(59,130,246,.26);
+  display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:6px;
+}
+.stat-val{
+  font-family:'Inter',sans-serif;font-size:26px;font-weight:900;line-height:1;
+  background:linear-gradient(135deg,var(--blue3),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.stat-lbl{font-size:11px;color:var(--wf);text-align:center;line-height:1.4}
 
-    .hero-label {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: 'Inter', sans-serif;
-      font-size: 10.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--blue-ll);
-      background: rgba(37,99,235,.1);
-      border: 1px solid rgba(59,130,246,.3);
-      padding: 6px 16px; border-radius: 999px;
-      margin-bottom: 28px;
-    }
-    .label-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--cyan);
-      animation: blink 2s ease infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.75)} }
+.hero-visual{position:relative;z-index:2;display:flex;justify-content:center}
+.hero-frame{
+  width:100%;max-width:490px;border-radius:22px;overflow:hidden;
+  box-shadow:0 0 80px rgba(37,99,235,.28),0 0 32px rgba(6,182,212,.1);
+  border:1px solid rgba(59,130,246,.14);
+}
+/* ↓ 施術写真をここに差し替え: <img src="photo.jpg" style="width:100%;display:block"> */
+.hero-photo{
+  width:100%;aspect-ratio:3/4;
+  background:
+    radial-gradient(ellipse 62% 52% at 48% 36%,rgba(37,99,235,.32) 0%,transparent 62%),
+    radial-gradient(ellipse 38% 32% at 72% 68%,rgba(6,182,212,.16) 0%,transparent 52%),
+    linear-gradient(155deg,#0a1a36 0%,#020b18 100%);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  gap:12px;color:rgba(255,255,255,.18);font-size:12px;letter-spacing:.06em;
+  position:relative;
+}
+.hero-photo-svg{position:absolute;inset:0;width:100%;height:100%}
 
-    .hero-h1 {
-      font-size: clamp(34px, 3.8vw, 50px);
-      font-weight: 900;
-      line-height: 1.18;
-      letter-spacing: -.02em;
-      margin-bottom: 4px;
-    }
-    .hero-h1-big {
-      display: block;
-      font-size: clamp(72px, 9.5vw, 128px);
-      font-weight: 900;
-      line-height: .98;
-      letter-spacing: -.04em;
-      background: linear-gradient(120deg, #fff 10%, #93c5fd 55%, #22d3ee 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 22px;
-    }
-    .hero-sub {
-      font-size: 16px; font-weight: 300;
-      color: var(--muted); line-height: 1.95;
-      margin-bottom: 44px;
-    }
+/* ─ SECTION ─ */
+.s{padding:96px 52px}
+.s-alt{background:var(--navy2)}
+.inner{max-width:1100px;margin:0 auto}
 
-    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
-    .btn-primary {
-      font-family: 'Noto Sans JP', sans-serif;
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 15px 34px;
-      background: var(--blue); color: #fff;
-      font-size: 15px; font-weight: 700;
-      text-decoration: none; border-radius: 9px; border: none; cursor: pointer;
-      transition: all .25s;
-    }
-    .btn-primary:hover { background: var(--blue-l); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37,99,235,.45); }
-    .btn-ghost {
-      font-family: 'Noto Sans JP', sans-serif;
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 15px 28px;
-      background: transparent; color: #fff;
-      font-size: 15px; font-weight: 500;
-      text-decoration: none; border-radius: 9px; border: 1px solid rgba(255,255,255,.2); cursor: pointer;
-      transition: all .25s;
-    }
-    .btn-ghost:hover { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.06); }
+.tag{
+  display:block;text-align:center;
+  font-family:'Inter',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--blue3);margin-bottom:10px;
+}
+.sep{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:10px}
+.sep::before,.sep::after{content:'';flex:0 0 44px;height:1px}
+.sep::before{background:linear-gradient(90deg,transparent,rgba(59,130,246,.6))}
+.sep::after{background:linear-gradient(90deg,rgba(59,130,246,.6),transparent)}
+.ttl{font-size:clamp(26px,3vw,36px);font-weight:700;text-align:center;letter-spacing:-.01em;margin-bottom:12px}
+.dsc{font-size:15px;font-weight:300;color:var(--wm);text-align:center;line-height:1.9;max-width:580px;margin:0 auto 60px}
 
-    /* badges */
-    .hero-badges { display: flex; gap: 28px; }
-    .badge { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-    .badge-icon {
-      width: 54px; height: 54px; border-radius: 50%;
-      background: rgba(37,99,235,.13); border: 1px solid rgba(59,130,246,.28);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; margin-bottom: 6px;
-    }
-    .badge-val {
-      font-family: 'Inter', sans-serif;
-      font-size: 26px; font-weight: 900; line-height: 1;
-      background: linear-gradient(135deg, var(--blue-ll), var(--cyan));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .badge-lbl { font-size: 11px; color: var(--faint); text-align: center; line-height: 1.4; }
+.card{
+  background:var(--card);border:1px solid var(--bdr);border-radius:18px;padding:34px;
+  transition:border-color .3s,transform .3s,background .3s;
+}
+.card:hover{border-color:rgba(59,130,246,.3);background:rgba(255,255,255,.06);transform:translateY(-5px)}
 
-    /* hero visual */
-    .hero-visual { position: relative; z-index: 2; display: flex; justify-content: center; }
-    .hero-frame {
-      width: 100%; max-width: 500px;
-      border-radius: 22px; overflow: hidden;
-      box-shadow: 0 0 80px rgba(37,99,235,.28), 0 0 30px rgba(6,182,212,.1);
-      border: 1px solid rgba(59,130,246,.15);
-    }
-    .hero-placeholder {
-      width: 100%; aspect-ratio: 3/4;
-      background:
-        radial-gradient(ellipse 65% 55% at 45% 35%, rgba(37,99,235,.35) 0%, transparent 65%),
-        radial-gradient(ellipse 40% 35% at 75% 70%, rgba(6,182,212,.18) 0%, transparent 55%),
-        linear-gradient(155deg, #0b1c38 0%, #020b1a 100%);
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-    }
-    .hero-placeholder svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-    .hero-placeholder-text {
-      position: relative; z-index: 2;
-      text-align: center; color: rgba(255,255,255,.18); font-size: 12px; letter-spacing: .06em;
-    }
+/* ─ SERVICE ─ */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.s-icon{
+  width:58px;height:58px;border-radius:14px;
+  background:rgba(37,99,235,.12);border:1px solid rgba(59,130,246,.24);
+  display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:20px;
+}
+.s-title{font-size:18px;font-weight:700;margin-bottom:12px}
+.s-body{font-size:14px;color:var(--wm);line-height:1.85}
 
-    /* ── SECTION BASE ── */
-    .s { padding: 96px 52px; }
-    .s-alt { background: var(--navy-2); }
+/* ─ ROI ─ */
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.roi-card{text-align:center;padding:40px 18px}
+.roi-emoji{font-size:28px;display:block;margin-bottom:14px}
+.roi-lbl{font-size:13px;color:var(--wm);margin-bottom:6px}
+.roi-val{
+  font-family:'Inter',sans-serif;font-size:clamp(38px,4.5vw,58px);font-weight:900;line-height:1;
+  background:linear-gradient(135deg,var(--blue3),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:10px;
+}
+.roi-note{font-size:11px;color:var(--wf);line-height:1.5}
+.roi-foot{text-align:center;font-size:15px;color:var(--wm);font-weight:300;margin-top:48px;letter-spacing:.01em}
 
-    .tag {
-      display: block; text-align: center;
-      font-family: 'Inter', sans-serif;
-      font-size: 10px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase;
-      color: var(--blue-ll); margin-bottom: 10px;
-    }
-    .ttl { font-size: clamp(26px, 3vw, 36px); font-weight: 700; text-align: center; letter-spacing: -.01em; margin-bottom: 12px; }
-    .dsc { font-size: 15px; font-weight: 300; color: var(--muted); text-align: center; line-height: 1.9; max-width: 580px; margin: 0 auto 60px; }
+/* ─ WHY ─ */
+.why-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center}
+.why-list{display:flex;flex-direction:column;gap:22px}
+.why-item{display:flex;align-items:flex-start;gap:16px}
+.why-ck{
+  width:30px;height:30px;flex-shrink:0;border-radius:50%;margin-top:2px;
+  background:rgba(37,99,235,.14);border:1px solid rgba(59,130,246,.34);
+  display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:13px;font-weight:700;
+}
+.why-t{font-size:16px;font-weight:700;margin-bottom:5px}
+.why-d{font-size:13px;color:var(--wm);line-height:1.8}
+.why-panel{
+  background:var(--card);border:1px solid var(--bdr);border-radius:22px;padding:50px 36px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.why-panel::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(37,99,235,.12) 0%,transparent 68%);
+}
+.wp-big{
+  position:relative;font-family:'Inter',sans-serif;font-size:88px;font-weight:900;line-height:1;
+  background:linear-gradient(135deg,var(--blue2),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.wp-lbl{position:relative;font-size:14px;color:var(--wm);margin-top:8px}
+.wp-sub{position:relative;font-size:12px;color:var(--wf);margin-top:5px}
+.wp-hr{width:40px;height:1px;background:rgba(255,255,255,.08);margin:28px auto;position:relative}
+.wp-big2{
+  position:relative;font-family:'Inter',sans-serif;font-size:60px;font-weight:900;line-height:1;
+  background:linear-gradient(135deg,var(--blue3),var(--cyan2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
 
-    .sep { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 12px; }
-    .sep::before,.sep::after { content:''; width: 44px; height: 1px; }
-    .sep::before { background: linear-gradient(90deg, transparent, rgba(59,130,246,.6)); }
-    .sep::after  { background: linear-gradient(90deg, rgba(59,130,246,.6), transparent); }
+/* ─ PRICING ─ */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:980px;margin:0 auto}
+.pc{border-radius:20px;padding:40px 30px;display:flex;flex-direction:column;position:relative}
+.pc-feat{
+  background:linear-gradient(145deg,rgba(37,99,235,.2) 0%,rgba(6,182,212,.09) 100%);
+  border:1px solid rgba(59,130,246,.42);
+  box-shadow:0 0 50px rgba(37,99,235,.18);
+}
+.pc-badge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  font-size:11px;font-weight:700;letter-spacing:.06em;
+  color:#fff;padding:4px 20px;border-radius:999px;white-space:nowrap;
+}
+.pc-plan{font-size:13px;color:var(--wm);font-weight:500;margin-bottom:10px}
+.pc-price{
+  font-family:'Inter',sans-serif;font-size:44px;font-weight:900;line-height:1;color:#fff;margin-bottom:4px;
+}
+.pc-price sup{font-size:22px;font-weight:600;vertical-align:top;margin-top:10px;display:inline-block}
+.pc-price span{font-size:16px;font-weight:500;color:var(--wm)}
+.pc-freq{font-size:13px;color:var(--wf);margin-bottom:26px}
+.pc-hr{height:1px;background:rgba(255,255,255,.07);margin-bottom:22px}
+.pc-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:30px;flex:1}
+.pc-list li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,.65);line-height:1.6}
+.pc-list li::before{content:'✓';color:var(--cyan);font-weight:700;flex-shrink:0}
+.hl{color:var(--cyan2);font-weight:600}
+.btn-o{
+  font-family:'Noto Sans JP',sans-serif;display:block;width:100%;text-align:center;
+  padding:13px;border:1px solid rgba(255,255,255,.2);border-radius:8px;
+  color:#fff;font-size:14px;font-weight:500;text-decoration:none;transition:all .2s;
+}
+.btn-o:hover{border-color:rgba(255,255,255,.42);background:rgba(255,255,255,.06)}
+.btn-f{
+  font-family:'Noto Sans JP',sans-serif;display:block;width:100%;text-align:center;
+  padding:14px;background:var(--blue);border:none;border-radius:8px;
+  color:#fff;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .2s;
+}
+.btn-f:hover{background:var(--blue2);box-shadow:0 6px 20px rgba(37,99,235,.4)}
 
-    /* ── CARDS ── */
-    .card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 34px;
-      transition: border-color .3s, transform .3s, background .3s;
-    }
-    .card:hover { border-color: rgba(59,130,246,.3); background: rgba(255,255,255,.055); transform: translateY(-5px); }
+/* ─ FLOW ─ */
+.flow-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;max-width:880px;margin:0 auto}
+.flow-line{position:absolute;top:31px;left:calc(100%/6 + 31px);right:calc(100%/6 + 31px);height:1px;background:linear-gradient(90deg,rgba(59,130,246,.6),rgba(6,182,212,.6))}
+.flow-item{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 28px}
+.flow-n{
+  width:62px;height:62px;border-radius:50%;z-index:2;position:relative;
+  background:linear-gradient(135deg,#1d4ed8,#2563eb);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Inter',sans-serif;font-size:19px;font-weight:700;
+  margin-bottom:26px;box-shadow:0 0 28px rgba(37,99,235,.55);
+}
+.flow-t{font-size:16px;font-weight:700;margin-bottom:10px}
+.flow-d{font-size:13px;color:var(--wm);line-height:1.8}
 
-    /* ── SERVICE ── */
-    .service-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .s-icon {
-      width: 58px; height: 58px; border-radius: 14px;
-      background: rgba(37,99,235,.13); border: 1px solid rgba(59,130,246,.25);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px; margin-bottom: 20px;
-    }
-    .s-title { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
-    .s-body { font-size: 14px; color: var(--muted); line-height: 1.85; }
+/* ─ CTA ─ */
+.cta-s{
+  padding:110px 52px;text-align:center;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(37,99,235,.16) 0%,transparent 68%),var(--navy3);
+}
+.cta-tag{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:18px}
+.cta-ttl{font-size:clamp(28px,4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.22;margin-bottom:14px}
+.cta-dsc{font-size:15px;color:var(--wm);font-weight:300;line-height:1.9;margin-bottom:48px}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.cta-note{font-size:12px;color:var(--wf)}
 
-    /* ── ROI ── */
-    .roi-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
-    .roi-card { text-align: center; padding: 40px 18px; }
-    .roi-emoji { font-size: 28px; display: block; margin-bottom: 14px; }
-    .roi-label { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
-    .roi-val {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(38px,4.5vw,58px); font-weight: 900; line-height: 1;
-      background: linear-gradient(135deg, var(--blue-ll), var(--cyan));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-      margin-bottom: 10px;
-    }
-    .roi-note { font-size: 11px; color: var(--faint); line-height: 1.5; }
-    .roi-footer { text-align: center; font-size: 15px; color: var(--muted); font-weight: 300; margin-top: 48px; }
+/* ─ FOOTER ─ */
+footer{
+  padding:36px 52px;border-top:1px solid rgba(255,255,255,.05);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+.foot-links{display:flex;gap:24px;list-style:none}
+.foot-links a{font-size:12px;color:var(--wf);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--wm)}
+.foot-copy{font-size:12px;color:var(--wf)}
 
-    /* ── WHY ── */
-    .why-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 72px; align-items: center; }
-    .why-list { display: flex; flex-direction: column; gap: 22px; }
-    .why-item { display: flex; align-items: flex-start; gap: 16px; }
-    .why-ck {
-      width: 30px; height: 30px; flex-shrink: 0; border-radius: 50%; margin-top: 2px;
-      background: rgba(37,99,235,.15); border: 1px solid rgba(59,130,246,.35);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--cyan); font-size: 13px; font-weight: 700;
-    }
-    .why-item-ttl { font-size: 16px; font-weight: 700; margin-bottom: 5px; }
-    .why-item-dsc { font-size: 13px; color: var(--muted); line-height: 1.8; }
-    .why-panel {
-      background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 48px 36px; text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .why-panel::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(37,99,235,.12) 0%, transparent 70%);
-    }
-    .why-big {
-      position: relative;
-      font-family: 'Inter', sans-serif;
-      font-size: 88px; font-weight: 900; line-height: 1;
-      background: linear-gradient(135deg, var(--blue-l), var(--cyan));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .why-big-lbl { position: relative; font-size: 14px; color: var(--muted); margin-top: 8px; }
-    .why-big-sub { position: relative; font-size: 12px; color: var(--faint); margin-top: 5px; }
-    .why-hr { width: 40px; height: 1px; background: rgba(255,255,255,.08); margin: 28px auto; position: relative; }
-    .why-big2 {
-      position: relative;
-      font-family: 'Inter', sans-serif;
-      font-size: 60px; font-weight: 900; line-height: 1;
-      background: linear-gradient(135deg, var(--blue-ll), var(--cyan-l));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
+/* ─ SCROLL FADE ─ */
+.fi{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.fi.on{opacity:1;transform:translateY(0)}
+.fi:nth-child(2){transition-delay:.1s}
+.fi:nth-child(3){transition-delay:.2s}
+.fi:nth-child(4){transition-delay:.3s}
 
-    /* ── PRICING ── */
-    .price-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; max-width: 980px; margin: 0 auto; }
-    .price-card { border-radius: 20px; padding: 40px 30px; display: flex; flex-direction: column; position: relative; }
-    .price-featured {
-      background: linear-gradient(145deg, rgba(37,99,235,.2) 0%, rgba(6,182,212,.09) 100%);
-      border: 1px solid rgba(59,130,246,.42);
-      box-shadow: 0 0 50px rgba(37,99,235,.18);
-    }
-    .price-badge {
-      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
-      background: linear-gradient(90deg, var(--blue), var(--cyan));
-      font-size: 11px; font-weight: 700; letter-spacing: .06em;
-      color: #fff; padding: 4px 20px; border-radius: 999px; white-space: nowrap;
-    }
-    .price-plan { font-size: 13px; color: var(--muted); font-weight: 500; margin-bottom: 10px; }
-    .price-price {
-      font-family: 'Inter', sans-serif;
-      font-size: 44px; font-weight: 900; line-height: 1; color: #fff; margin-bottom: 4px;
-    }
-    .price-price sup { font-size: 22px; font-weight: 600; vertical-align: top; margin-top: 10px; display: inline-block; }
-    .price-price span { font-size: 16px; font-weight: 500; color: var(--muted); }
-    .price-freq { font-size: 13px; color: var(--faint); margin-bottom: 26px; }
-    .price-hr { height: 1px; background: rgba(255,255,255,.07); margin-bottom: 22px; }
-    .price-list { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 30px; flex: 1; }
-    .price-list li { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.6; }
-    .price-list li::before { content: '✓'; color: var(--cyan); font-weight: 700; flex-shrink: 0; }
-    .hl { color: var(--cyan-l); font-weight: 600; }
-    .btn-outline {
-      font-family: 'Noto Sans JP', sans-serif;
-      display: block; width: 100%; text-align: center;
-      padding: 13px; border: 1px solid rgba(255,255,255,.2); border-radius: 8px;
-      color: #fff; font-size: 14px; font-weight: 500; text-decoration: none; transition: all .2s;
-    }
-    .btn-outline:hover { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.06); }
-    .btn-fill {
-      font-family: 'Noto Sans JP', sans-serif;
-      display: block; width: 100%; text-align: center;
-      padding: 14px; background: var(--blue); border: none; border-radius: 8px;
-      color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; cursor: pointer; transition: all .2s;
-    }
-    .btn-fill:hover { background: var(--blue-l); box-shadow: 0 6px 20px rgba(37,99,235,.4); }
-
-    /* ── FLOW ── */
-    .flow-wrap { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; position: relative; max-width: 880px; margin: 0 auto; }
-    .flow-line { position: absolute; top: 31px; left: calc(100%/6 + 31px); right: calc(100%/6 + 31px); height: 1px; background: linear-gradient(90deg, rgba(59,130,246,.6), rgba(6,182,212,.6)); }
-    .flow-item { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 28px; }
-    .flow-n {
-      width: 62px; height: 62px; border-radius: 50%; position: relative; z-index: 2;
-      background: linear-gradient(135deg, #1d4ed8, #2563eb);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 700;
-      margin-bottom: 26px;
-      box-shadow: 0 0 28px rgba(37,99,235,.55);
-    }
-    .flow-ttl { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
-    .flow-dsc { font-size: 13px; color: var(--muted); line-height: 1.8; }
-
-    /* ── CTA ── */
-    .cta {
-      padding: 110px 52px;
-      text-align: center;
-      position: relative; overflow: hidden;
-      background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(37,99,235,.16) 0%, transparent 70%), var(--navy-3);
-    }
-    .cta-tag { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--cyan); display: block; margin-bottom: 18px; }
-    .cta-ttl { font-size: clamp(28px,4vw,46px); font-weight: 900; letter-spacing: -.02em; line-height: 1.22; margin-bottom: 14px; }
-    .cta-dsc { font-size: 15px; color: var(--muted); font-weight: 300; line-height: 1.9; margin-bottom: 48px; }
-    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
-    .cta-note { font-size: 12px; color: var(--faint); }
-
-    /* ── FOOTER ── */
-    footer {
-      padding: 36px 52px;
-      border-top: 1px solid rgba(255,255,255,.05);
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
-    }
-    .foot-links { display: flex; gap: 24px; list-style: none; }
-    .foot-links a { font-size: 12px; color: var(--faint); text-decoration: none; transition: color .2s; }
-    .foot-links a:hover { color: var(--muted); }
-    .foot-copy { font-size: 12px; color: var(--faint); }
-
-    /* ── FADE IN ── */
-    .fi { opacity: 0; transform: translateY(26px); transition: opacity .65s ease, transform .65s ease; }
-    .fi.on { opacity: 1; transform: translateY(0); }
-    .fi:nth-child(2) { transition-delay: .1s; }
-    .fi:nth-child(3) { transition-delay: .2s; }
-    .fi:nth-child(4) { transition-delay: .3s; }
-
-    /* ── RESPONSIVE ── */
-    @media(max-width:1080px){
-      nav { padding: 14px 24px; }
-      .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; padding: 110px 24px 80px; }
-      .hero-visual { display: none; }
-      .s { padding: 72px 24px; }
-      .service-grid { grid-template-columns: 1fr; }
-      .roi-grid { grid-template-columns: repeat(2,1fr); }
-      .why-grid { grid-template-columns: 1fr; gap: 48px; }
-      .price-grid { grid-template-columns: 1fr; max-width: 400px; }
-      .flow-wrap { grid-template-columns: 1fr; gap: 40px; }
-      .flow-line { display: none; }
-      footer { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
-    }
-  </style>
+/* ─ RESPONSIVE ─ */
+@media(max-width:1080px){
+  nav{padding:14px 22px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:110px 22px 80px}
+  .hero-visual{display:none}
+  .s{padding:72px 22px}
+  .g3{grid-template-columns:1fr}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr;gap:48px}
+  .price-grid{grid-template-columns:1fr;max-width:400px}
+  .flow-wrap{grid-template-columns:1fr;gap:40px}
+  .flow-line{display:none}
+  footer{flex-direction:column;align-items:flex-start;padding:28px 22px}
+}
+</style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="logo">
-    <span class="logo-ja">極眠テクノロジー</span>
-    <span class="logo-en">GOKUMIN TECHNOLOGY</span>
+  <div class="nav-logo">
+    <span class="nav-logo-ja">極眠テクノロジー</span>
+    <span class="nav-logo-en">GOKUMIN TECHNOLOGY</span>
   </div>
   <ul class="nav-links">
     <li><a href="#service">サービス概要</a></li>
@@ -397,75 +339,87 @@
     <li><a href="#pricing">料金プラン</a></li>
     <li><a href="#flow">導入の流れ</a></li>
   </ul>
-  <a href="#cta" class="nav-cta">無料相談する</a>
+  <a href="#cta" class="nav-btn">無料相談する</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines">
+    <svg viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:.8"/>
+          <stop offset="100%" style="stop-color:#22d3ee;stop-opacity:.2"/>
+        </linearGradient>
+        <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <path d="M-100 600 Q300 480 600 560 Q900 640 1200 500 Q1380 420 1540 460" stroke="url(#lg1)" stroke-width="2" fill="none" filter="url(#glow)" opacity=".6">
+        <animate attributeName="d" dur="8s" repeatCount="indefinite"
+          values="M-100 600 Q300 480 600 560 Q900 640 1200 500 Q1380 420 1540 460;
+                  M-100 620 Q300 500 600 540 Q900 620 1200 520 Q1380 440 1540 440;
+                  M-100 600 Q300 480 600 560 Q900 640 1200 500 Q1380 420 1540 460"/>
+      </path>
+      <path d="M-100 700 Q400 580 700 650 Q1000 720 1300 590 Q1420 540 1540 560" stroke="url(#lg1)" stroke-width="1.5" fill="none" opacity=".35">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite"
+          values="M-100 700 Q400 580 700 650 Q1000 720 1300 590 Q1420 540 1540 560;
+                  M-100 680 Q400 600 700 630 Q1000 700 1300 610 Q1420 560 1540 540;
+                  M-100 700 Q400 580 700 650 Q1000 720 1300 590 Q1420 540 1540 560"/>
+      </path>
+      <path d="M-100 480 Q200 380 500 440 Q800 500 1100 390 Q1300 330 1540 360" stroke="url(#lg1)" stroke-width="1" fill="none" opacity=".22">
+        <animate attributeName="d" dur="12s" repeatCount="indefinite"
+          values="M-100 480 Q200 380 500 440 Q800 500 1100 390 Q1300 330 1540 360;
+                  M-100 500 Q200 360 500 460 Q800 520 1100 370 Q1300 350 1540 340;
+                  M-100 480 Q200 380 500 440 Q800 500 1100 390 Q1300 330 1540 360"/>
+      </path>
+    </svg>
+  </div>
+
   <div class="hero-content">
-    <div class="hero-label">
-      <span class="label-dot"></span>
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
       BtoB法人向け ドライヘッドスパサービス
     </div>
     <h1 class="hero-h1">
       医療監修の
       <span class="hero-h1-big">"企業特化型"<br>脳洗浄</span>
     </h1>
-    <p class="hero-sub">
-      訪問専門メディカルドライヘッドスパで、<br>
-      脳から生産性を最大化する。
-    </p>
+    <p class="hero-sub">訪問専門メディカルドライヘッドスパで、<br>脳から生産性を最大化する。</p>
     <div class="hero-btns">
-      <a href="#cta" class="btn-primary">無料デモを予約する &rarr;</a>
-      <a href="#cta" class="btn-ghost">資料ダウンロード（無料）</a>
+      <a href="#cta" class="btn-p">無料デモを予約する →</a>
+      <a href="#cta" class="btn-g">資料ダウンロード（無料）</a>
     </div>
-    <div class="hero-badges">
-      <div class="badge">
-        <div class="badge-icon">🏥</div>
-        <span class="badge-val">救命士</span>
-        <span class="badge-lbl">監修</span>
-      </div>
-      <div class="badge">
-        <div class="badge-icon">😊</div>
-        <span class="badge-val">92%</span>
-        <span class="badge-lbl">利用者<br>満足度</span>
-      </div>
-      <div class="badge">
-        <div class="badge-icon">🔄</div>
-        <span class="badge-val">100%</span>
-        <span class="badge-lbl">継続<br>利用率</span>
-      </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-icon">🏥</div><span class="stat-val">救命士</span><span class="stat-lbl">監修</span></div>
+      <div class="stat"><div class="stat-icon">😊</div><span class="stat-val">92%</span><span class="stat-lbl">利用者<br>満足度</span></div>
+      <div class="stat"><div class="stat-icon">🔄</div><span class="stat-val">100%</span><span class="stat-lbl">継続<br>利用率</span></div>
     </div>
   </div>
 
   <div class="hero-visual">
     <div class="hero-frame">
-      <!-- 施術写真をここに差し替え: <img src="photo.jpg" style="width:100%;display:block"> -->
-      <div class="hero-placeholder">
-        <svg viewBox="0 0 500 660" xmlns="http://www.w3.org/2000/svg">
+      <!-- 施術写真差し替え → <img src="photo.jpg" style="width:100%;display:block"> に置換 -->
+      <div class="hero-photo">
+        <svg class="hero-photo-svg" viewBox="0 0 490 650" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="wg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="pg" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:.9"/>
-              <stop offset="100%" style="stop-color:#22d3ee;stop-opacity:.35"/>
+              <stop offset="100%" style="stop-color:#22d3ee;stop-opacity:.3"/>
             </linearGradient>
-            <filter id="gl"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <filter id="pglow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           </defs>
-          <ellipse cx="250" cy="300" rx="210" ry="230" fill="rgba(37,99,235,.07)"/>
-          <ellipse cx="250" cy="300" rx="135" ry="155" fill="rgba(6,182,212,.05)"/>
-          <path d="M40 430 Q170 330 290 410 Q410 490 490 375" stroke="url(#wg)" stroke-width="2.5" fill="none" filter="url(#gl)" opacity=".75">
+          <ellipse cx="245" cy="290" rx="205" ry="225" fill="rgba(37,99,235,.07)"/>
+          <ellipse cx="245" cy="290" rx="130" ry="148" fill="rgba(6,182,212,.05)"/>
+          <path d="M30 440 Q160 340 280 420 Q400 500 480 385" stroke="url(#pg)" stroke-width="2.5" fill="none" filter="url(#pglow)" opacity=".72">
             <animate attributeName="d" dur="5s" repeatCount="indefinite"
-              values="M40 430 Q170 330 290 410 Q410 490 490 375;M40 450 Q170 350 290 390 Q410 470 490 395;M40 430 Q170 330 290 410 Q410 490 490 375"/>
+              values="M30 440 Q160 340 280 420 Q400 500 480 385;M30 460 Q160 360 280 400 Q400 480 480 405;M30 440 Q160 340 280 420 Q400 500 480 385"/>
           </path>
-          <path d="M20 510 Q150 430 270 500 Q390 570 490 465" stroke="url(#wg)" stroke-width="1.5" fill="none" opacity=".4">
+          <path d="M10 530 Q140 445 260 515 Q380 585 480 475" stroke="url(#pg)" stroke-width="1.5" fill="none" opacity=".38">
             <animate attributeName="d" dur="6.5s" repeatCount="indefinite"
-              values="M20 510 Q150 430 270 500 Q390 570 490 465;M20 490 Q150 450 270 480 Q390 550 490 485;M20 510 Q150 430 270 500 Q390 570 490 465"/>
-          </path>
-          <path d="M60 370 Q190 295 310 355 Q430 415 490 320" stroke="url(#wg)" stroke-width="1" fill="none" opacity=".28">
-            <animate attributeName="d" dur="8s" repeatCount="indefinite"
-              values="M60 370 Q190 295 310 355 Q430 415 490 320;M60 390 Q190 275 310 375 Q430 435 490 300;M60 370 Q190 295 310 355 Q430 415 490 320"/>
+              values="M10 530 Q140 445 260 515 Q380 585 480 475;M10 510 Q140 465 260 495 Q380 565 480 495;M10 530 Q140 445 260 515 Q380 585 480 475"/>
           </path>
         </svg>
-        <div class="hero-placeholder-text">
+        <div style="position:relative;z-index:2;text-align:center;color:rgba(255,255,255,.18);font-size:12px;letter-spacing:.06em">
           <div style="font-size:68px;margin-bottom:12px;opacity:.3">🧠</div>
           <p>施術写真をここに配置</p>
         </div>
@@ -476,192 +430,199 @@
 
 <!-- SERVICE -->
 <section class="s s-alt" id="service">
-  <div class="sep"></div>
-  <span class="tag">SERVICE</span>
-  <h2 class="ttl">サービス概要</h2>
-  <p class="dsc">ドライヘッドスパを企業向けに最適化。社員のコンディションを整え、組織のパフォーマンス向上を支援します。</p>
-  <div class="service-grid">
-    <div class="card fi">
-      <div class="s-icon">🏢</div>
-      <h3 class="s-title">オフィスで施術可能</h3>
-      <p class="s-body">専用設備は一切不要。会議室・休憩室に折りたたみ式リクライニングチェアを設置するだけで即日導入。1セッション15分、入れ替えを含めても20分で完了します。</p>
-    </div>
-    <div class="card fi">
-      <div class="s-icon">🩺</div>
-      <h3 class="s-title">救命士監修のメソッド</h3>
-      <p class="s-body">日本初・元救急救命士監修。医学的根拠に基づくドライヘッドスパで、自律神経・ストレス・睡眠の質を改善。「脳洗浄」とも呼ばれる深部リラクゼーション施術です。</p>
-    </div>
-    <div class="card fi">
-      <div class="s-icon">📊</div>
-      <h3 class="s-title">効果を数値で可視化</h3>
-      <p class="s-body">施術前後のコンディション測定で効果をレポート提供。健康経営優良法人の認定支援にも対応。経営層に伝わるROIデータを提供します。</p>
+  <div class="inner">
+    <div class="sep"></div>
+    <span class="tag">SERVICE</span>
+    <h2 class="ttl">サービス概要</h2>
+    <p class="dsc">ドライヘッドスパを企業向けに最適化。社員のコンディションを整え、組織のパフォーマンス向上を支援します。</p>
+    <div class="g3">
+      <div class="card fi">
+        <div class="s-icon">🏢</div>
+        <h3 class="s-title">オフィスで施術可能</h3>
+        <p class="s-body">専用設備は一切不要。会議室・休憩室に折りたたみ式リクライニングチェアを設置するだけで即日導入。1セッション15分、入れ替えを含めても20分で完了します。</p>
+      </div>
+      <div class="card fi">
+        <div class="s-icon">🩺</div>
+        <h3 class="s-title">救命士監修のメソッド</h3>
+        <p class="s-body">日本初・元救急救命士監修。医学的根拠に基づくドライヘッドスパで、自律神経・ストレス・睡眠の質を改善。「脳洗浄」とも呼ばれる深部リラクゼーション施術です。</p>
+      </div>
+      <div class="card fi">
+        <div class="s-icon">📊</div>
+        <h3 class="s-title">効果を数値で可視化</h3>
+        <p class="s-body">施術前後のコンディション測定で効果をレポート提供。健康経営優良法人の認定支援にも対応。経営層に伝わるROIデータを提供します。</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ROI -->
 <section class="s" id="roi">
-  <div class="sep"></div>
-  <span class="tag">RESULTS</span>
-  <h2 class="ttl">導入効果（ROI）</h2>
-  <p class="dsc">社員のコンディション向上が、組織の成果につながります。</p>
-  <div class="roi-grid">
-    <div class="card roi-card fi"><span class="roi-emoji">🎯</span><p class="roi-label">業務集中力向上</p><div class="roi-val">+23%</div><p class="roi-note">※当社調べ（導入企業の平均値）</p></div>
-    <div class="card roi-card fi"><span class="roi-emoji">😊</span><p class="roi-label">従業員満足度</p><div class="roi-val">+18pt</div><p class="roi-note">※当社調べ（導入企業の平均値）</p></div>
-    <div class="card roi-card fi"><span class="roi-emoji">📉</span><p class="roi-label">離職率改善</p><div class="roi-val">-12%</div><p class="roi-note">※当社調べ（導入企業の平均値）</p></div>
-    <div class="card roi-card fi"><span class="roi-emoji">🏢</span><p class="roi-label">継続導入率</p><div class="roi-val">96%</div><p class="roi-note">※当社調べ（導入企業の平均値）</p></div>
+  <div class="inner">
+    <div class="sep"></div>
+    <span class="tag">RESULTS</span>
+    <h2 class="ttl">導入効果（ROI）</h2>
+    <p class="dsc">社員のコンディション向上が、組織の成果につながります。</p>
+    <div class="g4">
+      <div class="card roi-card fi"><span class="roi-emoji">🎯</span><p class="roi-lbl">業務集中力向上</p><div class="roi-val" data-target="23" data-prefix="+" data-suffix="%">+23%</div><p class="roi-note">※当社調べ（導入企業平均）</p></div>
+      <div class="card roi-card fi"><span class="roi-emoji">😊</span><p class="roi-lbl">従業員満足度</p><div class="roi-val" data-target="18" data-prefix="+" data-suffix="pt">+18pt</div><p class="roi-note">※当社調べ（導入企業平均）</p></div>
+      <div class="card roi-card fi"><span class="roi-emoji">📉</span><p class="roi-lbl">離職率改善</p><div class="roi-val" data-target="12" data-prefix="-" data-suffix="%">-12%</div><p class="roi-note">※当社調べ（導入企業平均）</p></div>
+      <div class="card roi-card fi"><span class="roi-emoji">🏢</span><p class="roi-lbl">継続導入率</p><div class="roi-val" data-target="96" data-prefix="" data-suffix="%">96%</div><p class="roi-note">※当社調べ（導入企業平均）</p></div>
+    </div>
+    <p class="roi-foot">健康投資は、企業の未来への最も確実な投資です。</p>
   </div>
-  <p class="roi-footer">健康投資は、企業の未来への最も確実な投資です。</p>
 </section>
 
 <!-- WHY -->
 <section class="s s-alt">
-  <div class="sep"></div>
-  <span class="tag">REASON</span>
-  <h2 class="ttl" style="margin-bottom:56px">選ばれる理由</h2>
-  <div class="why-grid">
-    <div class="why-list">
-      <div class="why-item fi">
-        <div class="why-ck">✓</div>
-        <div><p class="why-item-ttl">元救急救命士による医療監修</p><p class="why-item-dsc">医学的根拠に基づいた独自メソッドで、安全性と効果を両立。医療のプロが監修した施術を体験できます。</p></div>
+  <div class="inner">
+    <div class="sep"></div>
+    <span class="tag">REASON</span>
+    <h2 class="ttl" style="margin-bottom:56px">選ばれる理由</h2>
+    <div class="why-grid">
+      <div class="why-list">
+        <div class="why-item fi"><div class="why-ck">✓</div><div><p class="why-t">元救急救命士による医療監修</p><p class="why-d">医学的根拠に基づいた独自メソッドで、安全性と効果を両立。医療のプロが監修した施術を体験できます。</p></div></div>
+        <div class="why-item fi"><div class="why-ck">✓</div><div><p class="why-t">設備不要・会議室で即日導入可能</p><p class="why-d">折りたたみ式リクライニングチェアを持参。工事・設備投資ゼロで、最短当日から導入できます。</p></div></div>
+        <div class="why-item fi"><div class="why-ck">✓</div><div><p class="why-t">1セッション15分・業務への影響ゼロ</p><p class="why-d">休憩時間を活用でき、業務フローを妨げません。入れ替えを含めても20分で完了。</p></div></div>
+        <div class="why-item fi"><div class="why-ck">✓</div><div><p class="why-t">千葉・神奈川・埼玉エリア対応</p><p class="why-d">首都圏主要エリアに訪問対応中。全国展開に向けた協会設立も準備中です。</p></div></div>
+        <div class="why-item fi"><div class="why-ck">✓</div><div><p class="why-t">無料デモンストレーション実施中</p><p class="why-d">まずは実際に体験してから導入を判断できます。費用・義務は一切ありません。</p></div></div>
       </div>
-      <div class="why-item fi">
-        <div class="why-ck">✓</div>
-        <div><p class="why-item-ttl">設備不要・会議室で即日導入可能</p><p class="why-item-dsc">折りたたみ式リクライニングチェアを持参。工事・設備投資ゼロで、最短当日から導入できます。</p></div>
+      <div class="why-panel fi">
+        <div class="wp-big">100%</div>
+        <p class="wp-lbl">継続利用率</p>
+        <p class="wp-sub">導入したすべての企業が継続中</p>
+        <div class="wp-hr"></div>
+        <div class="wp-big2">92%</div>
+        <p class="wp-lbl">利用者満足度</p>
+        <p class="wp-sub">「また受けたい」と回答した従業員の割合</p>
       </div>
-      <div class="why-item fi">
-        <div class="why-ck">✓</div>
-        <div><p class="why-item-ttl">1セッション15分・業務への影響ゼロ</p><p class="why-item-dsc">休憩時間を活用でき、業務フローを妨げません。入れ替え（リネン交換）を含めても20分で完了。</p></div>
-      </div>
-      <div class="why-item fi">
-        <div class="why-ck">✓</div>
-        <div><p class="why-item-ttl">千葉・神奈川・埼玉エリア対応</p><p class="why-item-dsc">首都圏主要エリアに訪問対応中。全国展開に向けた協会設立も準備中です。</p></div>
-      </div>
-      <div class="why-item fi">
-        <div class="why-ck">✓</div>
-        <div><p class="why-item-ttl">無料デモンストレーション実施中</p><p class="why-item-dsc">まずは実際に体験してから導入を判断できます。費用・義務は一切ありません。</p></div>
-      </div>
-    </div>
-    <div class="why-panel fi">
-      <div class="why-big">100%</div>
-      <p class="why-big-lbl">継続利用率</p>
-      <p class="why-big-sub">導入したすべての企業が継続中</p>
-      <div class="why-hr"></div>
-      <div class="why-big2">92%</div>
-      <p class="why-big-lbl">利用者満足度</p>
-      <p class="why-big-sub">「また受けたい」と回答した従業員の割合</p>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
 <section class="s" id="pricing">
-  <div class="sep"></div>
-  <span class="tag">PLAN</span>
-  <h2 class="ttl">料金プラン<small style="font-size:15px;font-weight:400;color:var(--faint);margin-left:8px">（税別）</small></h2>
-  <p class="dsc">企業規模・利用頻度に合わせて選べる3プラン。まずは無料デモをお試しください。</p>
-  <div class="price-grid">
-    <div class="card price-card fi">
-      <p class="price-plan">ミニマムプラン</p>
-      <div class="price-price"><sup>¥</sup>30,000<span>/月</span></div>
-      <p class="price-freq">月1回訪問</p>
-      <div class="price-hr"></div>
-      <ul class="price-list">
-        <li>1回の訪問（最大10名まで）</li>
-        <li>初期導入費 ¥20,000</li>
-        <li>効果レポート付き</li>
-        <li>初回限定プラン</li>
-      </ul>
-      <a href="#cta" class="btn-outline">詳細を相談する</a>
-    </div>
-    <div class="card price-card price-featured fi">
-      <div class="price-badge">おすすめ</div>
-      <p class="price-plan">スタンダードプラン</p>
-      <div class="price-price"><sup>¥</sup>90,000<span>/月</span></div>
-      <p class="price-freq">月3回訪問</p>
-      <div class="price-hr"></div>
-      <ul class="price-list">
-        <li>月3回訪問（最大30名まで）</li>
-        <li>初期導入費 ¥20,000</li>
-        <li>効果測定レポート（毎回）</li>
-        <li>専用サポート窓口</li>
-      </ul>
-      <a href="#cta" class="btn-fill">資料請求する</a>
-    </div>
-    <div class="card price-card fi">
-      <p class="price-plan">年間プラン</p>
-      <div class="price-price"><sup>¥</sup>300,000<span>/年</span></div>
-      <p class="price-freq">月換算 ¥25,000 でお得</p>
-      <div class="price-hr"></div>
-      <ul class="price-list">
-        <li>初期導入費 <span class="hl">無料</span></li>
-        <li>年間サポート付き</li>
-        <li>優先予約対応</li>
-        <li>健康経営優良法人 認定支援</li>
-      </ul>
-      <a href="#cta" class="btn-outline">相談する</a>
+  <div class="inner">
+    <div class="sep"></div>
+    <span class="tag">PLAN</span>
+    <h2 class="ttl">料金プラン<small style="font-size:15px;font-weight:400;color:var(--wf);margin-left:8px">（税別）</small></h2>
+    <p class="dsc">企業規模・利用頻度に合わせて選べる3プラン。まずは無料デモをお試しください。</p>
+    <div class="price-grid">
+      <div class="card pc fi">
+        <p class="pc-plan">ミニマムプラン</p>
+        <div class="pc-price"><sup>¥</sup>30,000<span>/月</span></div>
+        <p class="pc-freq">月1回訪問</p>
+        <div class="pc-hr"></div>
+        <ul class="pc-list">
+          <li>1回の訪問（最大10名まで）</li>
+          <li>初期導入費 ¥20,000</li>
+          <li>効果レポート付き</li>
+          <li>初回限定プラン</li>
+        </ul>
+        <a href="#cta" class="btn-o">詳細を相談する</a>
+      </div>
+      <div class="card pc pc-feat fi">
+        <div class="pc-badge">おすすめ</div>
+        <p class="pc-plan">スタンダードプラン</p>
+        <div class="pc-price"><sup>¥</sup>90,000<span>/月</span></div>
+        <p class="pc-freq">月3回訪問</p>
+        <div class="pc-hr"></div>
+        <ul class="pc-list">
+          <li>月3回訪問（最大30名まで）</li>
+          <li>初期導入費 ¥20,000</li>
+          <li>効果測定レポート（毎回）</li>
+          <li>専用サポート窓口</li>
+        </ul>
+        <a href="#cta" class="btn-f">資料請求する</a>
+      </div>
+      <div class="card pc fi">
+        <p class="pc-plan">年間プラン</p>
+        <div class="pc-price"><sup>¥</sup>300,000<span>/年</span></div>
+        <p class="pc-freq">月換算 ¥25,000 でお得</p>
+        <div class="pc-hr"></div>
+        <ul class="pc-list">
+          <li>初期導入費 <span class="hl">無料</span></li>
+          <li>年間サポート付き</li>
+          <li>優先予約対応</li>
+          <li>健康経営優良法人 認定支援</li>
+        </ul>
+        <a href="#cta" class="btn-o">相談する</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FLOW -->
 <section class="s s-alt" id="flow">
-  <div class="sep"></div>
-  <span class="tag">FLOW</span>
-  <h2 class="ttl">導入までの流れ</h2>
-  <p class="dsc">お問い合わせから最短1週間で導入できます。</p>
-  <div class="flow-wrap">
-    <div class="flow-line"></div>
-    <div class="flow-item fi">
-      <div class="flow-n">01</div>
-      <h3 class="flow-ttl">お問い合わせ・ヒアリング</h3>
-      <p class="flow-dsc">フォームまたはお電話でご連絡ください。貴社のニーズ・従業員規模・課題などをヒアリングします。</p>
-    </div>
-    <div class="flow-item fi">
-      <div class="flow-n">02</div>
-      <h3 class="flow-ttl">無料トライアル実施</h3>
-      <p class="flow-dsc">まずは無料デモンストレーションを実施。実際の施術を体験していただき、効果をご確認ください。</p>
-    </div>
-    <div class="flow-item fi">
-      <div class="flow-n">03</div>
-      <h3 class="flow-ttl">プラン確定・ご契約</h3>
-      <p class="flow-dsc">体験後に最適なプランをご提案。ご納得いただけたら契約締結、定期スケジュールを設定します。</p>
+  <div class="inner">
+    <div class="sep"></div>
+    <span class="tag">FLOW</span>
+    <h2 class="ttl">導入までの流れ</h2>
+    <p class="dsc">お問い合わせから最短1週間で導入できます。</p>
+    <div class="flow-wrap">
+      <div class="flow-line"></div>
+      <div class="flow-item fi"><div class="flow-n">01</div><h3 class="flow-t">お問い合わせ・ヒアリング</h3><p class="flow-d">フォームまたはお電話でご連絡ください。貴社のニーズ・従業員規模・課題などをヒアリングします。</p></div>
+      <div class="flow-item fi"><div class="flow-n">02</div><h3 class="flow-t">無料トライアル実施</h3><p class="flow-d">まずは無料デモンストレーションを実施。実際の施術を体験していただき、効果をご確認ください。</p></div>
+      <div class="flow-item fi"><div class="flow-n">03</div><h3 class="flow-t">プラン確定・ご契約</h3><p class="flow-d">体験後に最適なプランをご提案。ご納得いただけたら契約締結、定期スケジュールを設定します。</p></div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta" id="cta">
+<section class="cta-s" id="cta">
   <span class="cta-tag">CONTACT</span>
   <h2 class="cta-ttl">まずは無料デモンストレーションから</h2>
   <p class="cta-dsc">サービスの詳細や導入事例、費用感などをまとめた資料をお送りします。<br>無理な営業は一切いたしません。</p>
   <div class="cta-btns">
-    <a href="#" class="btn-primary">無料相談を予約する &rarr;</a>
-    <a href="#" class="btn-ghost">資料をダウンロードする</a>
+    <a href="#" class="btn-p">無料相談を予約する →</a>
+    <a href="#" class="btn-g">資料をダウンロードする</a>
   </div>
   <p class="cta-note">最短1分で完了 ｜ 無理な営業は一切いたしません</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="logo">
-    <span class="logo-ja">極眠テクノロジー</span>
-    <span class="logo-en">GOKUMIN TECHNOLOGY</span>
+  <div class="nav-logo">
+    <span class="nav-logo-ja">極眠テクノロジー</span>
+    <span class="nav-logo-en">GOKUMIN TECHNOLOGY</span>
   </div>
   <ul class="foot-links">
     <li><a href="#">プライバシーポリシー</a></li>
     <li><a href="#">特定商取引法に基づく表記</a></li>
     <li><a href="#cta">お問い合わせ</a></li>
   </ul>
-  <p class="foot-copy">&copy; 2025 極眠テクノロジー All Rights Reserved.</p>
+  <p class="foot-copy">© 2025 極眠テクノロジー All Rights Reserved.</p>
 </footer>
 
 <script>
-  const io = new IntersectionObserver(
-    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }),
-    { threshold: 0.1 }
-  );
-  document.querySelectorAll('.fi').forEach(el => io.observe(el));
+// Scroll fade-in
+const io = new IntersectionObserver(
+  es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('on') }),
+  { threshold: 0.1 }
+);
+document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+// ROI count-up
+const countUp = (el) => {
+  const target = +el.dataset.target;
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  let current = 0;
+  const step = target / 60;
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = prefix + Math.round(current) + suffix;
+    if (current >= target) clearInterval(timer);
+  }, 16);
+};
+const roiObserver = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.roi-val[data-target]').forEach(countUp);
+      roiObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('#roi').forEach(el => roiObserver.observe(el));
 </script>
 </body>
 </html>
