@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>極眠テクノロジー | 医療監修の企業特化型ドライヘッドスパ</title>
+  <meta name="description" content="元救急救命士監修。企業訪問型メディカルドライヘッドスパで、社員のストレスと離職率を改善。無料デモ実施中。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-950: #020810;
+      --bg-900: #040c1a;
+      --bg-800: #071222;
+      --bg-700: #0c1c33;
+      --blue-600: #1d4ed8;
+      --blue-500: #2563eb;
+      --blue-400: #3b82f6;
+      --blue-300: #60a5fa;
+      --blue-200: #93c5fd;
+      --cyan-500: #06b6d4;
+      --cyan-400: #22d3ee;
+      --cyan-300: #67e8f9;
+      --white: #ffffff;
+      --text-muted: rgba(255,255,255,0.55);
+      --text-faint: rgba(255,255,255,0.3);
+      --card-bg: rgba(255,255,255,0.03);
+      --card-border: rgba(255,255,255,0.07);
+      --blue-glow: rgba(37, 99, 235, 0.35);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg-950);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 60px;
+      background: rgba(2, 8, 16, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: padding 0.3s;
+    }
+    .nav-brand { display: flex; flex-direction: column; gap: 1px; }
+    .nav-brand-ja { font-size: 17px; font-weight: 700; letter-spacing: 0.04em; }
+    .nav-brand-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: var(--blue-300);
+      opacity: 0.6;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: white; }
+    .nav-btn {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: white;
+      background: var(--blue-500);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 7px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .nav-btn:hover {
+      background: var(--blue-400);
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 60px;
+      padding: 140px 60px 100px;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(ellipse 80% 60% at 60% 30%, rgba(37,99,235,0.18) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 40% at 20% 80%, rgba(6,182,212,0.1) 0%, transparent 60%),
+                  var(--bg-950);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue-300);
+      border: 1px solid rgba(59,130,246,0.35);
+      background: rgba(37,99,235,0.08);
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow-dot {
+      width: 6px; height: 6px;
+      background: var(--cyan-400);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero-heading {
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .hero-heading-large {
+      display: block;
+      font-size: clamp(56px, 7vw, 88px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      background: linear-gradient(130deg, #ffffff 20%, #93c5fd 60%, #22d3ee 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 44px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+    .btn-primary {
+      font-family: 'Noto Sans JP', sans-serif;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 32px;
+      background: var(--blue-500);
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 9px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .btn-primary:hover {
+      background: var(--blue-400);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(37, 99, 235, 0.45);
+    }
+    .btn-ghost {
+      font-family: 'Noto Sans JP', sans-serif;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 28px;
+      background: transparent;
+      color: white;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 9px;
+      border: 1px solid rgba(255,255,255,0.18);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* Hero badges */
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+    }
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .hero-stat-icon {
+      width: 52px; height: 52px;
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(59,130,246,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+    .hero-stat-val {
+      font-family: 'Inter', sans-serif;
+      font-size: 26px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--blue-300), var(--cyan-400));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 11px;
+      color: var(--text-faint);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-image-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 0 80px rgba(37,99,235,0.25), 0 0 40px rgba(6,182,212,0.1);
+    }
+    /* TODO: ここに実際の施術写真を配置 */
+    .hero-img-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 40%, rgba(37,99,235,0.3) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 70% 70%, rgba(6,182,212,0.15) 0%, transparent 60%),
+        linear-gradient(160deg, #0a1a38 0%, #030a18 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hero-img-placeholder svg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0; left: 0;
+    }
+    .hero-img-placeholder-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: rgba(255,255,255,0.2);
+      font-size: 13px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── SECTION BASE ─── */
+    .section {
+      padding: 100px 60px;
+      position: relative;
+    }
+    .section--alt { background: var(--bg-800); }
+
+    .section-tag {
+      display: block;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--blue-300);
+      margin-bottom: 10px;
+    }
+    .section-en {
+      display: block;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--text-faint);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 580px;
+      margin: 0 auto 64px;
+      font-weight: 300;
+      line-height: 1.9;
+    }
+
+    /* Decorative heading separator */
+    .sep {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .sep::before, .sep::after {
+      content: '';
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59,130,246,0.6));
+    }
+    .sep::after { background: linear-gradient(90deg, rgba(59,130,246,0.6), transparent); }
+    .sep-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--blue-300);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* Glass card */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 36px;
+      transition: border-color 0.3s, transform 0.3s, background 0.3s;
+    }
+    .card:hover {
+      border-color: rgba(59,130,246,0.28);
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-4px);
+    }
+
+    /* ─── SERVICE ─── */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .service-icon {
+      width: 60px; height: 60px;
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(59,130,246,0.25);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 22px;
+    }
+    .service-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .service-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    /* ─── ROI ─── */
+    .roi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .roi-card {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .roi-emoji { font-size: 30px; display: block; margin-bottom: 16px; }
+    .roi-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      font-weight: 400;
+    }
+    .roi-value {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(36px, 4vw, 54px);
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--blue-300), var(--cyan-400));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+    .roi-note {
+      font-size: 11px;
+      color: var(--text-faint);
+      line-height: 1.5;
+    }
+    .roi-footer-text {
+      text-align: center;
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 48px;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── WHY ─── */
+    .why-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .why-list { display: flex; flex-direction: column; gap: 24px; }
+    .why-item { display: flex; align-items: flex-start; gap: 18px; }
+    .why-check {
+      width: 30px; height: 30px;
+      flex-shrink: 0;
+      background: rgba(37,99,235,0.15);
+      border: 1px solid rgba(59,130,246,0.35);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan-400);
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .why-item-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .why-item-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .why-panel {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 52px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .why-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 30%, rgba(37,99,235,0.12) 0%, transparent 70%);
+    }
+    .why-panel-val {
+      font-family: 'Inter', sans-serif;
+      font-size: 80px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--blue-400), var(--cyan-400));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      position: relative;
+    }
+    .why-panel-label {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      position: relative;
+    }
+    .why-panel-divider {
+      width: 48px;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 32px auto;
+      position: relative;
+    }
+    .why-panel-val2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 56px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--blue-300), var(--cyan-300));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      position: relative;
+    }
+
+    /* ─── PRICING ─── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .pricing-card {
+      border-radius: 20px;
+      padding: 40px 32px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .pricing-card--featured {
+      background: linear-gradient(145deg, rgba(37,99,235,0.18) 0%, rgba(6,182,212,0.08) 100%);
+      border: 1px solid rgba(59,130,246,0.4);
+      box-shadow: 0 0 40px rgba(37,99,235,0.15);
+    }
+    .pricing-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--blue-500), var(--cyan-500));
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 4px 20px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .pricing-plan { font-size: 13px; color: var(--text-muted); font-weight: 500; margin-bottom: 12px; }
+    .pricing-price {
+      font-family: 'Inter', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1;
+      color: white;
+      margin-bottom: 4px;
+    }
+    .pricing-price sup { font-size: 22px; font-weight: 600; vertical-align: top; margin-top: 8px; display: inline-block; }
+    .pricing-price span { font-size: 16px; font-weight: 500; color: var(--text-muted); }
+    .pricing-freq { font-size: 13px; color: var(--text-faint); margin-bottom: 28px; }
+    .pricing-hr { height: 1px; background: rgba(255,255,255,0.07); margin-bottom: 24px; }
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      margin-bottom: 32px;
+      flex: 1;
+    }
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+    .pricing-features li::before { content: '✓'; color: var(--cyan-400); font-weight: 700; flex-shrink: 0; }
+    .pricing-features .highlight { color: var(--cyan-300); font-weight: 600; }
+    .btn-outline {
+      font-family: 'Noto Sans JP', sans-serif;
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 13px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); }
+    .btn-primary-full {
+      font-family: 'Noto Sans JP', sans-serif;
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 14px;
+      background: var(--blue-500);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary-full:hover {
+      background: var(--blue-400);
+      box-shadow: 0 6px 20px rgba(37,99,235,0.4);
+    }
+
+    /* ─── FLOW ─── */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .flow-connector {
+      position: absolute;
+      top: 32px;
+      left: calc(100% / 6 + 32px);
+      right: calc(100% / 6 + 32px);
+      height: 1px;
+      background: linear-gradient(90deg, rgba(59,130,246,0.6), rgba(6,182,212,0.6));
+    }
+    .flow-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 32px;
+    }
+    .flow-num {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 28px rgba(37,99,235,0.5);
+    }
+    .flow-title { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .flow-desc { font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      padding: 120px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 50%, rgba(37,99,235,0.15) 0%, transparent 70%),
+        var(--bg-900);
+    }
+    .cta-tag {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--cyan-400);
+      margin-bottom: 20px;
+    }
+    .cta-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+    .cta-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+    .cta-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .cta-note {
+      font-size: 12px;
+      color: var(--text-faint);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 40px 60px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 12px;
+      color: var(--text-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text-muted); }
+    .footer-copy { font-size: 12px; color: var(--text-faint); }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.in { opacity: 1; transform: translateY(0); }
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1080px) {
+      nav { padding: 16px 28px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 120px 32px 80px; gap: 0; }
+      .hero-visual { display: none; }
+      .section { padding: 80px 28px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .roi-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-inner { grid-template-columns: 1fr; gap: 48px; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+      .flow-grid { grid-template-columns: 1fr; gap: 40px; }
+      .flow-connector { display: none; }
+      footer { flex-direction: column; align-items: flex-start; padding: 32px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav>
+  <div class="nav-brand">
+    <span class="nav-brand-ja">極眠テクノロジー</span>
+    <span class="nav-brand-en">GOKUMIN TECHNOLOGY</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#service">サービス概要</a></li>
+    <li><a href="#roi">導入効果</a></li>
+    <li><a href="#pricing">料金プラン</a></li>
+    <li><a href="#flow">導入の流れ</a></li>
+  </ul>
+  <a href="#cta" class="nav-btn">無料相談する</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      BtoB法人向け ドライヘッドスパサービス
+    </div>
+    <h1 class="hero-heading">
+      医療監修の
+      <span class="hero-heading-large">"企業特化型"<br>脳洗浄</span>
+    </h1>
+    <p class="hero-sub">
+      訪問専門メディカルドライヘッドスパで、<br>
+      脳から生産性を最大化する。
+    </p>
+    <div class="hero-ctas">
+      <a href="#cta" class="btn-primary">無料デモを予約する &rarr;</a>
+      <a href="#cta" class="btn-ghost">&#8595; 資料ダウンロード（無料）</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-icon">🏥</div>
+        <span class="hero-stat-val">救命士</span>
+        <span class="hero-stat-label">監修</span>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-icon">😊</div>
+        <span class="hero-stat-val">92%</span>
+        <span class="hero-stat-label">利用者<br>満足度</span>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-icon">🔄</div>
+        <span class="hero-stat-val">100%</span>
+        <span class="hero-stat-label">継続<br>利用率</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-image-wrap">
+      <div class="hero-img-placeholder">
+        <!-- Animated wave SVG -->
+        <svg viewBox="0 0 500 650" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;width:100%;height:100%">
+          <defs>
+            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.9"/>
+              <stop offset="100%" style="stop-color:#22d3ee;stop-opacity:0.4"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <ellipse cx="250" cy="280" rx="200" ry="220" fill="rgba(37,99,235,0.07)"/>
+          <ellipse cx="250" cy="280" rx="130" ry="150" fill="rgba(6,182,212,0.05)"/>
+          <path d="M 40 420 Q 160 320 280 400 Q 400 480 480 370" stroke="url(#g1)" stroke-width="2.5" fill="none" filter="url(#glow)" opacity="0.7">
+            <animate attributeName="d" dur="5s" repeatCount="indefinite"
+              values="M 40 420 Q 160 320 280 400 Q 400 480 480 370;
+                      M 40 440 Q 160 340 280 380 Q 400 460 480 390;
+                      M 40 420 Q 160 320 280 400 Q 400 480 480 370"/>
+          </path>
+          <path d="M 20 500 Q 140 420 260 490 Q 380 560 480 460" stroke="url(#g1)" stroke-width="1.5" fill="none" opacity="0.4">
+            <animate attributeName="d" dur="6s" repeatCount="indefinite"
+              values="M 20 500 Q 140 420 260 490 Q 380 560 480 460;
+                      M 20 480 Q 140 440 260 470 Q 380 540 480 480;
+                      M 20 500 Q 140 420 260 490 Q 380 560 480 460"/>
+          </path>
+          <path d="M 60 360 Q 180 290 300 340 Q 420 390 480 310" stroke="url(#g1)" stroke-width="1" fill="none" opacity="0.3">
+            <animate attributeName="d" dur="7s" repeatCount="indefinite"
+              values="M 60 360 Q 180 290 300 340 Q 420 390 480 310;
+                      M 60 380 Q 180 270 300 360 Q 420 410 480 290;
+                      M 60 360 Q 180 290 300 340 Q 420 390 480 310"/>
+          </path>
+        </svg>
+        <div class="hero-img-placeholder-inner">
+          <div style="font-size:72px;margin-bottom:16px;opacity:0.35">🧠</div>
+          <p>施術写真をここに配置</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICE ─── -->
+<section class="section section--alt" id="service">
+  <div class="sep"><span class="sep-text">SERVICE</span></div>
+  <h2 class="section-title">サービス概要</h2>
+  <p class="section-desc">ドライヘッドスパを企業向けに最適化。社員のコンディションを整え、<br>組織のパフォーマンス向上を支援します。</p>
+  <div class="service-grid">
+    <div class="card service-card fade-up">
+      <div class="service-icon">🏢</div>
+      <h3>オフィスで施術可能</h3>
+      <p>専用設備は一切不要。会議室・休憩室に折りたたみ式リクライニングチェアを設置するだけで即日導入できます。1セッション15分、入れ替えを含めても20分で完了。</p>
+    </div>
+    <div class="card service-card fade-up">
+      <div class="service-icon">🩺</div>
+      <h3>救命士監修のメソッド</h3>
+      <p>日本初・元救急救命士監修。医学的根拠に基づくドライヘッドスパで、自律神経・ストレス・睡眠の質を改善します。「脳洗浄」とも呼ばれる深部リラクゼーション施術。</p>
+    </div>
+    <div class="card service-card fade-up">
+      <div class="service-icon">📊</div>
+      <h3>効果を数値で可視化</h3>
+      <p>施術前後のコンディション測定で効果をレポート提供。健康経営優良法人の認定支援にも対応。経営層に伝わるROIデータを提供します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ROI ─── -->
+<section class="section" id="roi">
+  <div class="sep"><span class="sep-text">RESULTS</span></div>
+  <h2 class="section-title">導入効果（ROI）</h2>
+  <p class="section-desc">社員のコンディション向上が、組織の成果につながります。</p>
+  <div class="roi-grid">
+    <div class="card roi-card fade-up">
+      <span class="roi-emoji">🎯</span>
+      <p class="roi-label">業務集中力向上</p>
+      <div class="roi-value">+23%</div>
+      <p class="roi-note">※当社調べ<br>（導入企業の平均値）</p>
+    </div>
+    <div class="card roi-card fade-up">
+      <span class="roi-emoji">😊</span>
+      <p class="roi-label">従業員満足度</p>
+      <div class="roi-value">+18pt</div>
+      <p class="roi-note">※当社調べ<br>（導入企業の平均値）</p>
+    </div>
+    <div class="card roi-card fade-up">
+      <span class="roi-emoji">📉</span>
+      <p class="roi-label">離職率改善</p>
+      <div class="roi-value">-12%</div>
+      <p class="roi-note">※当社調べ<br>（導入企業の平均値）</p>
+    </div>
+    <div class="card roi-card fade-up">
+      <span class="roi-emoji">🏢</span>
+      <p class="roi-label">継続導入率</p>
+      <div class="roi-value">96%</div>
+      <p class="roi-note">※当社調べ<br>（導入企業の平均値）</p>
+    </div>
+  </div>
+  <p class="roi-footer-text">健康投資は、企業の未来への最も確実な投資です。</p>
+</section>
+
+<!-- ─── WHY ─── -->
+<section class="section section--alt">
+  <div class="sep"><span class="sep-text">REASON</span></div>
+  <h2 class="section-title" style="margin-bottom:56px">選ばれる理由</h2>
+  <div class="why-inner">
+    <div class="why-list">
+      <div class="why-item fade-up">
+        <div class="why-check">✓</div>
+        <div>
+          <p class="why-item-title">元救急救命士による医療監修</p>
+          <p class="why-item-desc">医学的根拠に基づいた独自メソッドで、安全性と効果を両立。医療のプロが監修した施術を体験できます。</p>
+        </div>
+      </div>
+      <div class="why-item fade-up">
+        <div class="why-check">✓</div>
+        <div>
+          <p class="why-item-title">設備不要・会議室で即日導入可能</p>
+          <p class="why-item-desc">折りたたみ式リクライニングチェアを持参。工事・設備投資ゼロで、最短当日から導入できます。</p>
+        </div>
+      </div>
+      <div class="why-item fade-up">
+        <div class="why-check">✓</div>
+        <div>
+          <p class="why-item-title">1セッション15分・業務への影響ゼロ</p>
+          <p class="why-item-desc">休憩時間を活用でき、業務フローを妨げません。入れ替え（リネン交換）を含めても20分で完了。</p>
+        </div>
+      </div>
+      <div class="why-item fade-up">
+        <div class="why-check">✓</div>
+        <div>
+          <p class="why-item-title">千葉・神奈川・埼玉エリア対応</p>
+          <p class="why-item-desc">首都圏主要エリアに訪問対応中。全国展開に向けた協会設立も準備中です。</p>
+        </div>
+      </div>
+      <div class="why-item fade-up">
+        <div class="why-check">✓</div>
+        <div>
+          <p class="why-item-title">無料デモンストレーション実施中</p>
+          <p class="why-item-desc">まずは実際に体験してから導入を判断できます。費用・義務は一切ありません。</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-panel fade-up">
+      <div class="why-panel-val">100%</div>
+      <p class="why-panel-label">継続利用率</p>
+      <p style="font-size:12px;color:var(--text-faint);margin-top:6px;position:relative">導入したすべての企業が継続中</p>
+      <div class="why-panel-divider"></div>
+      <div class="why-panel-val2">92%</div>
+      <p class="why-panel-label">利用者満足度</p>
+      <p style="font-size:12px;color:var(--text-faint);margin-top:6px;position:relative">「また受けたい」と回答した従業員の割合</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICING ─── -->
+<section class="section" id="pricing">
+  <div class="sep"><span class="sep-text">PLAN</span></div>
+  <h2 class="section-title">料金プラン<small style="font-size:16px;font-weight:400;color:var(--text-faint);margin-left:8px">（税別）</small></h2>
+  <p class="section-desc">企業規模・利用頻度に合わせて選べる3プラン。<br>まずは無料デモをお試しください。</p>
+  <div class="pricing-grid">
+
+    <div class="card pricing-card fade-up">
+      <p class="pricing-plan">ミニマムプラン</p>
+      <div class="pricing-price"><sup>¥</sup>30,000<span>/月</span></div>
+      <p class="pricing-freq">月1回訪問</p>
+      <div class="pricing-hr"></div>
+      <ul class="pricing-features">
+        <li>1回の訪問（最大10名まで）</li>
+        <li>初期導入費 ¥20,000</li>
+        <li>効果レポート付き</li>
+        <li>初回限定プラン</li>
+      </ul>
+      <a href="#cta" class="btn-outline">詳細を相談する</a>
+    </div>
+
+    <div class="card pricing-card pricing-card--featured fade-up">
+      <div class="pricing-badge">おすすめ</div>
+      <p class="pricing-plan">スタンダードプラン</p>
+      <div class="pricing-price"><sup>¥</sup>90,000<span>/月</span></div>
+      <p class="pricing-freq">月3回訪問</p>
+      <div class="pricing-hr"></div>
+      <ul class="pricing-features">
+        <li>月3回訪問（最大30名まで）</li>
+        <li>初期導入費 ¥20,000</li>
+        <li>効果測定レポート（毎回）</li>
+        <li>専用サポート窓口</li>
+      </ul>
+      <a href="#cta" class="btn-primary-full">資料請求する</a>
+    </div>
+
+    <div class="card pricing-card fade-up">
+      <p class="pricing-plan">年間プラン</p>
+      <div class="pricing-price"><sup>¥</sup>300,000<span>/年</span></div>
+      <p class="pricing-freq">月換算 ¥25,000 でお得</p>
+      <div class="pricing-hr"></div>
+      <ul class="pricing-features">
+        <li>初期導入費 <span class="highlight">無料</span></li>
+        <li>年間サポート付き</li>
+        <li>優先予約対応</li>
+        <li>健康経営優良法人 認定支援</li>
+      </ul>
+      <a href="#cta" class="btn-outline">相談する</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── FLOW ─── -->
+<section class="section section--alt" id="flow">
+  <div class="sep"><span class="sep-text">FLOW</span></div>
+  <h2 class="section-title">導入までの流れ</h2>
+  <p class="section-desc">お問い合わせから最短1週間で導入できます。</p>
+  <div class="flow-grid">
+    <div class="flow-connector"></div>
+    <div class="flow-item fade-up">
+      <div class="flow-num">01</div>
+      <h3 class="flow-title">お問い合わせ・ヒアリング</h3>
+      <p class="flow-desc">フォームまたはお電話でご連絡ください。貴社のニーズ・従業員規模・課題などをヒアリングします。</p>
+    </div>
+    <div class="flow-item fade-up">
+      <div class="flow-num">02</div>
+      <h3 class="flow-title">無料トライアル実施</h3>
+      <p class="flow-desc">まずは無料デモンストレーションを実施。実際の施術を体験していただき、効果をご確認ください。</p>
+    </div>
+    <div class="flow-item fade-up">
+      <div class="flow-num">03</div>
+      <h3 class="flow-title">プラン確定・ご契約</h3>
+      <p class="flow-desc">体験後に最適なプランをご提案。ご納得いただけたら契約締結、定期スケジュールを設定します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section" id="cta">
+  <span class="cta-tag">CONTACT</span>
+  <h2 class="cta-title">まずは無料デモンストレーションから</h2>
+  <p class="cta-desc">
+    サービスの詳細や導入事例、費用感などをまとめた資料をお送りします。<br>
+    無理な営業は一切いたしません。
+  </p>
+  <div class="cta-btns">
+    <a href="#" class="btn-primary">無料相談を予約する &rarr;</a>
+    <a href="#" class="btn-ghost">&#8595; 資料をダウンロードする</a>
+  </div>
+  <p class="cta-note">最短1分で完了 ｜ 無理な営業は一切いたしません</p>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="nav-brand">
+    <span class="nav-brand-ja">極眠テクノロジー</span>
+    <span class="nav-brand-en">GOKUMIN TECHNOLOGY</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#">プライバシーポリシー</a></li>
+    <li><a href="#">特定商取引法に基づく表記</a></li>
+    <li><a href="#cta">お問い合わせ</a></li>
+  </ul>
+  <p class="footer-copy">&copy; 2025 極眠テクノロジー All Rights Reserved.</p>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
